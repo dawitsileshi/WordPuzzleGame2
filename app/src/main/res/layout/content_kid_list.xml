@@ -9,6 +9,10 @@
     tools:context=".KidListActivity"
     tools:showIn="@layout/activity_kid_list">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/sad"/>
     <TextView
         android:id="@+id/tv_activity_kid_list_no_kids"
         android:layout_width="0dp"
