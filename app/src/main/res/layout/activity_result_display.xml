@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_dialog_result_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="Score"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_activity_result_quizType_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Game Type"
+        android:textSize="25sp"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/tv_dialog_result_title"
+        app:layout_constraintBottom_toTopOf="@id/tv_activity_result_lang_title"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_activity_result_quizType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quiz Type"
+        android:textSize="25sp"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_activity_result_lang"
+        app:layout_constraintTop_toBottomOf="@id/tv_dialog_result_title"/>
+    <TextView
+        android:id="@+id/tv_activity_result_lang_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Language"
+        android:textSize="25sp"
+        android:textColor="@android:color/black"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_activity_result_total_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_activity_result_quizType_title" />
+
+    <TextView
+        android:id="@+id/tv_activity_result_lang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quiz Type"
+        android:textSize="25sp"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_activity_result_total"
+        app:layout_constraintTop_toBottomOf="@id/tv_activity_result_quizType"/>
+
+    <TextView
+        android:id="@+id/tv_activity_result_total_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="Total"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/tv_activity_result_lang_title"
+        app:layout_constraintBottom_toTopOf="@id/tv_activity_result_score_title"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_activity_result_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quiz Type"
+        android:textSize="25sp"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_activity_result_score"
+        app:layout_constraintTop_toBottomOf="@id/tv_activity_result_lang"/>
+
+    <TextView
+        android:id="@+id/tv_activity_result_score_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Score"
+        android:textSize="25sp"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_activity_result_total_title"/>
+
+    <TextView
+        android:id="@+id/tv_activity_result_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quiz Type"
+        android:textSize="25sp"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_activity_result_total"/>
+
+    <TextView
+        android:id="@+id/tv_activity_result_correct_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_activity_result_score_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/button_activity_result_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show More"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_activity_result_correct_answer" />
+
+</android.support.constraint.ConstraintLayout>

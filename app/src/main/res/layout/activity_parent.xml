@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purpleBlack"
+    tools:context=".ParentActivity">
+
+    <ImageView
+        android:id="@+id/iv_activity_parent_add_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/add_language_button"
+        app:layout_constraintVertical_chainStyle="spread"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/iv_activity_parent_add_kid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/iv_activity_parent_add_word"/>
+
+    <ImageView
+        android:id="@+id/iv_activity_parent_add_word"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/iv_activity_parent_see_results"
+        app:layout_constraintStart_toEndOf="@id/iv_activity_parent_add_language"
+        android:src="@drawable/add_word_button"/>
+
+    <ImageView
+        android:id="@+id/iv_activity_parent_add_kid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_activity_parent_add_language"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/iv_activity_parent_see_results"
+        android:src="@drawable/add_kid_button"/>
+
+    <ImageView
+        android:id="@+id/iv_activity_parent_see_results"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_activity_parent_add_word"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_activity_parent_add_kid"
+        android:src="@drawable/see_results_button"/>
+    <!--<Button-->
+        <!--android:id="@+id/button_activity_parent_add_language"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Add Language"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"/>-->
+
+    <!--<Button-->
+        <!--android:id="@+id/button_activity_parent_add_word"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Add Word"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/button_activity_parent_add_language"/>-->
+
+    <!--<Button-->
+        <!--android:id="@+id/button_activity_parent_add_kid"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Add Kid"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/button_activity_parent_add_word"/>-->
+
+    <!--<Button-->
+        <!--android:id="@+id/button_activity_parent_see_results"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="See Results"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/button_activity_parent_add_kid"/>-->
+</android.support.constraint.ConstraintLayout>

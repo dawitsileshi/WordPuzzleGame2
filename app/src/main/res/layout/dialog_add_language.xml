@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tv_dialog_add_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add New Language"
+        android:textSize="25sp"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/til_dialog_add_language"/>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_dialog_add_language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/rg_dialog_add_language"
+        app:layout_constraintTop_toBottomOf="@id/tv_dialog_add_language">
+
+        <EditText
+            android:id="@+id/et_dialog_add_language"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/language_name"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <RadioGroup
+        android:id="@+id/rg_dialog_add_language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button_dialog_add_language"
+        app:layout_constraintTop_toBottomOf="@id/til_dialog_add_language">
+
+        <RadioButton
+            android:id="@+id/rb_dialog_add_language_geez_amh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ge'ez-amh"/>
+
+
+        <RadioButton
+            android:id="@+id/rb_dialog_add_language_geez_tig"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ge'ez-tig"/>
+
+        <RadioButton
+            android:id="@+id/rb_dialog_add_language_latin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Latin"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button_dialog_add_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        style="@style/Widget.AppCompat.Button.Colored"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rg_dialog_add_language"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

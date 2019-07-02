@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".account.LoginActivity"
+    android:background="@color/purpleBlack">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_activity_login"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        app:civ_border_width="5dp"
+        app:civ_border_color="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/til_activity_login_uname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/manager" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_activity_login_uname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:boxStrokeColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/et_activity_login_uname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="email"
+            android:inputType="textEmailAddress"
+            android:textColorHint="@android:color/white"
+            android:textColor="@android:color/white"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_activity_login_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textColorHint="@android:color/white"
+        app:boxStrokeColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_activity_login_uname">
+
+        <EditText
+            android:id="@+id/et_activity_login_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="password"
+            android:inputType="textPassword"
+            android:textColorHint="@android:color/white"
+            android:textColor="@android:color/white" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/button_activity_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_light"
+        android:layout_margin="16dp"
+        android:text="Login"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_activity_login_password" />
+</android.support.constraint.ConstraintLayout>

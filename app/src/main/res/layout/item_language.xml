@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/purpleBlack"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_item_language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="4dp"
+        android:layout_margin="4dp"
+        app:cardBackgroundColor="@color/purpleLight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_item_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/latin_alphabets"/>
+        <TextView
+            android:id="@+id/tv_item_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:text="Amharic"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center"
+            android:padding="8dp"/>
+
+        <ImageView
+            android:id="@+id/iv_item_language_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:padding="8dp"
+            app:srcCompat="@drawable/ic_more_vert_black_24dp"
+            android:layout_gravity="center_vertical|end"
+            />
+
+    </android.support.v7.widget.CardView>
+
+</android.support.constraint.ConstraintLayout>

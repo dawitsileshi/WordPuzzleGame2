@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameSettingActivity">
+
+    <!--<ScrollView-->
+        <!--android:id="@+id/scrollView"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+        <!--<android.support.constraint.ConstraintLayout-->
+            <!--android:id="@+id/wholeConstraint"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <!--&lt;!&ndash;<android.support.v7.widget.CardView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:cardBackgroundColor="?attr/cardBackground"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:layout_constraintLeft_toLeftOf="parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:layout_constraintRight_toRightOf="parent">&ndash;&gt;-->
+            <!--&lt;!&ndash;app:layout_constraintTop_toBottomOf="@id/appBarLayoutID"&ndash;&gt;-->
+            <!--<android.support.constraint.ConstraintLayout-->
+                <!--android:id="@+id/nightModeConstraint"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--app:layout_constraintLeft_toLeftOf="parent"-->
+                <!--app:layout_constraintRight_toRightOf="parent">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/nightModeTitle"-->
+                    <!---->
+                    <!--android:layout_marginLeft="@dimen/margin_start"-->
+                    <!--android:layout_marginStart="@dimen/margin_start"-->
+                    <!--android:layout_marginTop="@dimen/margin_top"-->
+                    <!--android:layout_marginBottom="8dp"-->
+                    <!--android:text="@string/night_mode"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textColor="?attr/titles"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintTop_toTopOf="parent"-->
+                    <!--tools:ignore="RtlHardcoded" />-->
+
+                <!--<LinearLayout-->
+                    <!--android:id="@+id/underLine"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="1dp"-->
+                    <!--style="@style/settingsStyle"-->
+                    <!--android:background="?attr/tintColor"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintTop_toBottomOf="@id/nightModeTitle"-->
+                    <!--tools:ignore="RtlHardcoded" />-->
+                <!--&lt;!&ndash;android:layout_marginEnd="@dimen/margin_end"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginLeft="@dimen/margin_start"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginRight="@dimen/margin_end"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginStart="@dimen/margin_start"&ndash;&gt;-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/nightMode"-->
+                    <!--style="@style/SettingTextViewTheme"-->
+                    <!--android:layout_marginBottom="@dimen/margin_end"-->
+                    <!--android:layout_marginLeft="@dimen/margin_end"-->
+                    <!--android:layout_marginStart="@dimen/margin_start"-->
+                    <!--android:layout_marginTop="@dimen/margin_top"-->
+                    <!--android:text="@string/night_mode"-->
+                    <!--android:textSize="16sp"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--app:layout_constraintStart_toEndOf="@id/nightMode_image"-->
+                    <!--app:layout_constraintTop_toBottomOf="@+id/underLine"-->
+                    <!--tools:ignore="RtlHardcoded" />-->
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/nightMode_image"-->
+                    <!--style="@style/settingsStyle"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:contentDescription="@string/a_night_mode_icon"-->
+                    <!--android:tint="?attr/tintColor"-->
+                    <!--android:visibility="visible"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--app:layout_constraintEnd_toStartOf="@id/nightMode"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintTop_toTopOf="@+id/nightMode"-->
+                    <!--app:srcCompat="@drawable/ic_sunny"-->
+                    <!--tools:ignore="RtlHardcoded,VectorDrawableCompat" />-->
+
+                <!--<android.support.v7.widget.SwitchCompat-->
+                    <!--android:id="@+id/nightModeSwitch"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:theme="@style/switchTheme"-->
+                    <!--android:layout_marginEnd="@dimen/margin_end"-->
+                    <!--android:layout_marginRight="@dimen/margin_end"-->
+                    <!--app:layout_constraintBaseline_toBaselineOf="@id/nightMode"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--tools:ignore="RtlHardcoded" />-->
+                <!--&lt;!&ndash;app:thumbTint="?attr/switchThumb"&ndash;&gt;-->
+                <!--&lt;!&ndash;app:trackTint="?attr/switchTrack"&ndash;&gt;-->
+
+            <!--</android.support.constraint.ConstraintLayout>-->
+
+            <!--&lt;!&ndash;</android.support.v7.widget.CardView>&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<android.support.v7.widget.CardView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/notificationConstraint"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_marginTop="2dp"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:cardBackgroundColor="?attr/cardBackground"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:layout_constraintLeft_toLeftOf="parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:layout_constraintRight_toRightOf="parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:layout_constraintTop_toBottomOf="@id/nightModeConstraint">&ndash;&gt;-->
+
+            <!--<android.support.constraint.ConstraintLayout-->
+                <!--android:id="@+id/notificationConstraint"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--app:layout_constraintLeft_toLeftOf="parent"-->
+                <!--app:layout_constraintRight_toRightOf="parent"-->
+                <!--app:layout_constraintBottom_toTopOf="@id/intervalConstraint"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/nightModeConstraint">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/notificationTitle"-->
+                    <!--style="@style/SettingTextViewTheme"-->
+                    <!--android:text="@string/notification"-->
+                    <!--android:textColor="?attr/titles"-->
+                    <!--android:textStyle="bold"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintTop_toTopOf="parent"-->
+                    <!--tools:ignore="RtlHardcoded" />-->
+
+                <!--<LinearLayout-->
+                    <!--android:id="@+id/underLine1"-->
+                    <!--style="@style/settingsStyle"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="1dp"-->
+                    <!--android:background="?attr/tintColor"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintTop_toBottomOf="@id/notificationTitle"-->
+                    <!--tools:ignore="RtlHardcoded" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/notification"-->
+                    <!--style="@style/SettingTextViewTheme"-->
+                    <!--android:layout_marginBottom="@dimen/margin_bottom"-->
+                    <!--android:layout_marginLeft="@dimen/margin_start"-->
+                    <!--android:layout_marginStart="@dimen/margin_start"-->
+                    <!--android:layout_marginTop="@dimen/margin_top"-->
+                    <!--android:text="@string/reminder"-->
+                    <!--android:textSize="16sp"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--app:layout_constraintStart_toEndOf="@id/notification_image"-->
+                    <!--app:layout_constraintTop_toBottomOf="@+id/underLine1" />-->
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/notification_image"-->
+                    <!--style="@style/settingsStyle"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:contentDescription="@string/a_notification_icon"-->
+                    <!--android:tint="?attr/tintColor"-->
+                    <!--android:visibility="visible"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--app:layout_constraintEnd_toStartOf="@id/notification"-->
+                    <!--app:layout_constraintHorizontal_chainStyle="spread_inside"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintTop_toTopOf="@+id/notification"-->
+                    <!--app:srcCompat="@drawable/ic_notifications"-->
+                    <!--tools:ignore="RtlHardcoded,VectorDrawableCompat" />-->
+
+                <!--<android.support.v7.widget.SwitchCompat-->
+                    <!--android:id="@+id/notificationSwitch"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginEnd="@dimen/margin_end"-->
+                    <!--android:layout_marginRight="@dimen/margin_end"-->
+                    <!--android:theme="@style/switchTheme"-->
+                    <!--app:layout_constraintBaseline_toBaselineOf="@id/notification"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--tools:ignore="RtlHardcoded" />-->
+                <!--&lt;!&ndash;app:thumbTint="?attr/switchThumb"&ndash;&gt;-->
+                <!--&lt;!&ndash;app:trackTint="?attr/switchTrack"&ndash;&gt;-->
+            <!--</android.support.constraint.ConstraintLayout>-->
+
+            <!--&lt;!&ndash;</android.support.v7.widget.CardView>&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<android.support.v7.widget.CardView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/intervalConstraint"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:cardBackgroundColor="?attr/cardBackground"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:layout_constraintTop_toBottomOf="@id/notificationConstraint">&ndash;&gt;-->
+
+
+            <!--<android.support.constraint.ConstraintLayout-->
+                <!--android:id="@+id/intervalConstraint"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/notificationConstraint"-->
+                <!--app:layout_constraintBottom_toTopOf="@id/fontConstraint">-->
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/interval_image"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginStart="48dp"-->
+                    <!--android:layout_marginLeft="48dp"-->
+                    <!--android:layout_marginTop="@dimen/margin_top"-->
+                    <!--android:layout_marginBottom="@dimen/margin_bottom"-->
+                    <!--android:alpha="0.5"-->
+                    <!--android:contentDescription="@string/an_interval_icon"-->
+                    <!--android:tint="?attr/tintColor"-->
+                    <!--android:visibility="visible"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintTop_toTopOf="parent"-->
+                    <!--app:srcCompat="@drawable/ic_interval"-->
+                    <!--tools:ignore="VectorDrawableCompat" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/interval"-->
+                    <!--style="@style/SettingTextViewTheme"-->
+                    <!--android:layout_marginBottom="@dimen/margin_bottom"-->
+                    <!--android:layout_marginLeft="@dimen/margin_start"-->
+                    <!--android:layout_marginStart="@dimen/margin_start"-->
+                    <!--android:layout_marginTop="@dimen/margin_top"-->
+                    <!--android:text="@string/when"-->
+                    <!--android:alpha="0.5"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--app:layout_constraintStart_toEndOf="@+id/interval_image"-->
+                    <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/imageView_setting_when"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:padding="8dp"-->
+                    <!--android:alpha="0.5"-->
+                    <!--android:tint="?attr/tintColor"-->
+                    <!--android:layout_marginEnd="@dimen/margin_end"-->
+                    <!--app:srcCompat="@drawable/ic_alarm_black_24dp"-->
+                    <!--app:layout_constraintTop_toTopOf="parent"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--android:contentDescription="@string/a_clock_icon"-->
+                    <!--android:layout_marginRight="@dimen/margin_end" />-->
+                <!--&lt;!&ndash;<android.support.v7.widget.AppCompatSpinner&ndash;&gt;-->
+                <!--&lt;!&ndash;android:id="@+id/intervalSpinner"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="0dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginBottom="@dimen/margin_bottom"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginEnd="@dimen/margin_end"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginLeft="@dimen/margin_start"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginRight="@dimen/margin_end"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginStart="@dimen/margin_start"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginTop="@dimen/margin_top"&ndash;&gt;-->
+                <!--&lt;!&ndash;app:layout_constraintTop_toTopOf="parent"&ndash;&gt;-->
+                <!--&lt;!&ndash;app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
+                <!--&lt;!&ndash;app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+                <!--&lt;!&ndash;app:layout_constraintStart_toEndOf="@id/interval" />&ndash;&gt;-->
+
+            <!--</android.support.constraint.ConstraintLayout>-->
+
+            <!--&lt;!&ndash;</android.support.v7.widget.CardView>&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<android.support.v7.widget.CardView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/fontConstraint"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_marginTop="2dp"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:cardBackgroundColor="?attr/cardBackground"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:layout_constraintLeft_toLeftOf="parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:layout_constraintRight_toRightOf="parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:layout_constraintTop_toBottomOf="@id/intervalConstraint">&ndash;&gt;-->
+
+            <!--<android.support.constraint.ConstraintLayout-->
+                <!--android:id="@+id/fontConstraint"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--app:layout_constraintLeft_toLeftOf="parent"-->
+                <!--app:layout_constraintRight_toRightOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/intervalConstraint">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/fontTitle"-->
+                    <!--style="@style/SettingTextViewTheme"-->
+                    <!--android:layout_marginLeft="@dimen/margin_start"-->
+                    <!--android:layout_marginStart="@dimen/margin_start"-->
+                    <!--android:layout_marginTop="@dimen/margin_top"-->
+                    <!--android:text="@string/font"-->
+                    <!--android:textColor="?attr/titles"-->
+                    <!--android:textStyle="bold"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+                <!--<LinearLayout-->
+                    <!--android:id="@+id/underLine2"-->
+                    <!--style="@style/settingsStyle"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="1dp"-->
+                    <!--android:background="?attr/tintColor"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintTop_toBottomOf="@id/fontTitle" />-->
+
+                <!--&lt;!&ndash;android:layout_marginEnd="@dimen/margin_end"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginLeft="@dimen/margin_start"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginRight="@dimen/margin_end"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginStart="@dimen/margin_start"&ndash;&gt;-->
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/font_image"-->
+                    <!--style="@style/settingsStyle"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="8dp"-->
+                    <!--android:contentDescription="@string/a_font_icon"-->
+                    <!--android:tint="?attr/tintColor"-->
+                    <!--android:visibility="visible"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintTop_toBottomOf="@id/underLine2"-->
+                    <!--app:srcCompat="@drawable/ic_font"-->
+                    <!--tools:ignore="VectorDrawableCompat" />-->
+
+                <!--<android.support.v7.widget.AppCompatSpinner-->
+                    <!--android:id="@+id/fontSpinner"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginBottom="@dimen/margin_bottom"-->
+                    <!--android:layout_marginEnd="@dimen/margin_end"-->
+                    <!--android:layout_marginLeft="@dimen/margin_start"-->
+                    <!--android:layout_marginRight="@dimen/margin_end"-->
+                    <!--android:layout_marginStart="@dimen/margin_start"-->
+                    <!--android:layout_marginTop="@dimen/margin_top"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--app:layout_constraintStart_toEndOf="@id/font_image"-->
+                    <!--app:layout_constraintTop_toTopOf="@id/underLine2" />-->
+
+            <!--</android.support.constraint.ConstraintLayout>-->
+
+            <!--&lt;!&ndash;</android.support.v7.widget.CardView>&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<android.support.v7.widget.CardView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/floatingWidgetConstraint"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_marginTop="2dp"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:cardBackgroundColor="?attr/cardBackground"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:layout_constraintLeft_toLeftOf="parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:layout_constraintRight_toRightOf="parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:layout_constraintTop_toBottomOf="@id/fontConstraint">&ndash;&gt;-->
+
+            <!--<android.support.constraint.ConstraintLayout-->
+                <!--android:id="@+id/floatingWidgetConstraint"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--app:layout_constraintLeft_toLeftOf="parent"-->
+                <!--app:layout_constraintRight_toRightOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/fontConstraint">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/floatingWidgetTitle"-->
+                    <!--style="@style/SettingTextViewTheme"-->
+                    <!--android:layout_marginLeft="@dimen/margin_start"-->
+                    <!--android:layout_marginStart="@dimen/margin_start"-->
+                    <!--android:layout_marginTop="@dimen/margin_top"-->
+                    <!--android:text="@string/floating_widget"-->
+                    <!--android:textColor="?attr/titles"-->
+                    <!--android:textStyle="bold"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintTop_toTopOf="parent"-->
+                    <!--tools:ignore="RtlHardcoded" />-->
+
+                <!--<LinearLayout-->
+                    <!--android:id="@+id/underline3"-->
+                    <!--style="@style/settingsStyle"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="1dp"-->
+                    <!--android:background="?attr/tintColor"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintTop_toBottomOf="@id/floatingWidgetTitle"-->
+                    <!--tools:ignore="RtlHardcoded" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/floatingWidget"-->
+                    <!--style="@style/SettingTextViewTheme"-->
+                    <!--android:layout_marginBottom="@dimen/margin_end"-->
+                    <!--android:layout_marginLeft="@dimen/margin_end"-->
+                    <!--android:layout_marginStart="@dimen/margin_start"-->
+                    <!--android:layout_marginTop="@dimen/margin_top"-->
+                    <!--android:text="@string/enable_floating_widget"-->
+                    <!--android:textSize="16sp"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--app:layout_constraintStart_toEndOf="@id/floatingWidget_image"-->
+                    <!--app:layout_constraintTop_toBottomOf="@+id/underline3"-->
+                    <!--tools:ignore="RtlHardcoded" />-->
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/floatingWidget_image"-->
+                    <!--style="@style/settingsStyle"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:contentDescription="@string/a_night_mode_icon"-->
+                    <!--android:tint="?attr/tintColor"-->
+                    <!--android:visibility="visible"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--app:layout_constraintEnd_toStartOf="@id/floatingWidget"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintTop_toTopOf="@+id/floatingWidget"-->
+                    <!--app:srcCompat="@drawable/ic_widgets_black_24dp"-->
+                    <!--tools:ignore="RtlHardcoded,VectorDrawableCompat" />-->
+
+                <!--<android.support.v7.widget.SwitchCompat-->
+                    <!--android:id="@+id/floatingWidgetSwitch"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginEnd="@dimen/margin_end"-->
+                    <!--android:layout_marginRight="@dimen/margin_end"-->
+                    <!--android:theme="@style/switchTheme"-->
+                    <!--app:layout_constraintBaseline_toBaselineOf="@id/floatingWidget"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--tools:ignore="RtlHardcoded" />-->
+                <!--&lt;!&ndash;app:thumbTint="?attr/switchThumb"&ndash;&gt;-->
+                <!--&lt;!&ndash;app:trackTint="?attr/switchTrack"&ndash;&gt;-->
+
+            <!--</android.support.constraint.ConstraintLayout>-->
+
+            <!--&lt;!&ndash;</android.support.v7.widget.CardView>&ndash;&gt;-->
+
+            <!--&lt;!&ndash;<android.support.v7.widget.CardView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/sortConstraint"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_marginTop="2dp"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:cardBackgroundColor="?cardBackground"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+            <!--&lt;!&ndash;app:layout_constraintTop_toBottomOf="@id/floatingWidgetConstraint">&ndash;&gt;-->
+
+            <!--<android.support.constraint.ConstraintLayout-->
+                <!--android:id="@+id/sortConstraint"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/floatingWidgetConstraint">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/sortTitle"-->
+                    <!--style="@style/SettingTextViewTheme"-->
+                    <!--android:layout_marginLeft="@dimen/margin_start"-->
+                    <!--android:layout_marginStart="@dimen/margin_start"-->
+                    <!--android:layout_marginTop="@dimen/margin_top"-->
+                    <!--android:text="@string/sort_by"-->
+                    <!--android:textColor="?attr/titles"-->
+                    <!--android:textStyle="bold"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintTop_toTopOf="parent"-->
+                    <!--tools:ignore="RtlHardcoded" />-->
+
+
+                <!--<LinearLayout-->
+                    <!--android:id="@+id/underline4"-->
+                    <!--style="@style/settingsStyle"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="1dp"-->
+                    <!--android:background="?attr/tintColor"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintTop_toBottomOf="@id/sortTitle"-->
+                    <!--tools:ignore="RtlHardcoded" />-->
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/sort_image"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginStart="8dp"-->
+                    <!--android:layout_marginLeft="8dp"-->
+                    <!--android:layout_marginTop="8dp"-->
+                    <!--android:layout_marginBottom="8dp"-->
+                    <!--android:tint="?attr/tintColor"-->
+                    <!--android:visibility="visible"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintTop_toBottomOf="@+id/underline4"-->
+                    <!--app:srcCompat="@drawable/ic_sort_black_24dp" />-->
+
+                <!--<android.support.v7.widget.AppCompatSpinner-->
+                    <!--android:id="@+id/sortSpinner"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginBottom="8dp"-->
+                    <!--android:layout_marginEnd="8dp"-->
+                    <!--android:layout_marginStart="8dp"-->
+                    <!--android:layout_marginTop="8dp"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--app:layout_constraintStart_toEndOf="@+id/sort_image"-->
+                    <!--app:layout_constraintTop_toBottomOf="@+id/underline4" />-->
+
+            <!--</android.support.constraint.ConstraintLayout>-->
+
+            <!--<android.support.constraint.ConstraintLayout-->
+                <!--android:id="@+id/selfDeletionConstraint"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:visibility="gone"-->
+                <!--app:layout_constraintLeft_toLeftOf="parent"-->
+                <!--app:layout_constraintRight_toRightOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@id/sortConstraint">-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/selfDeletionTitle"-->
+                    <!--style="@style/SettingTextViewTheme"-->
+                    <!--android:layout_marginLeft="@dimen/margin_start"-->
+                    <!--android:layout_marginStart="@dimen/margin_start"-->
+                    <!--android:layout_marginTop="@dimen/margin_top"-->
+                    <!--android:text="@string/self_deletion"-->
+                    <!--android:textColor="?attr/titles"-->
+                    <!--android:textStyle="bold"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintTop_toTopOf="parent"-->
+                    <!--tools:ignore="RtlHardcoded" />-->
+
+                <!--<LinearLayout-->
+                    <!--android:id="@+id/underline5"-->
+                    <!--style="@style/settingsStyle"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="1dp"-->
+                    <!--android:background="?attr/tintColor"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintTop_toBottomOf="@id/selfDeletionTitle"-->
+                    <!--tools:ignore="RtlHardcoded" />-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/selfDeletion"-->
+                    <!--style="@style/SettingTextViewTheme"-->
+                    <!--android:layout_marginBottom="@dimen/margin_end"-->
+                    <!--android:layout_marginLeft="@dimen/margin_end"-->
+                    <!--android:layout_marginStart="@dimen/margin_start"-->
+                    <!--android:layout_marginTop="@dimen/margin_top"-->
+                    <!--android:text="@string/word_deletion"-->
+                    <!--android:textSize="16sp"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--app:layout_constraintStart_toEndOf="@id/selfDeletion_image"-->
+                    <!--app:layout_constraintTop_toBottomOf="@+id/underline5"-->
+                    <!--tools:ignore="RtlHardcoded" />-->
+
+                <!--<ImageView-->
+                    <!--android:id="@+id/selfDeletion_image"-->
+                    <!--style="@style/settingsStyle"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:contentDescription="@string/a_night_mode_icon"-->
+                    <!--android:tint="?attr/tintColor"-->
+                    <!--android:visibility="visible"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--app:layout_constraintEnd_toStartOf="@id/selfDeletion"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintTop_toTopOf="@+id/selfDeletion"-->
+                    <!--app:srcCompat="@drawable/ic_delete_forever_black_24dp"-->
+                    <!--tools:ignore="RtlHardcoded,VectorDrawableCompat" />-->
+
+                <!--<android.support.v7.widget.AppCompatSpinner-->
+                    <!--android:id="@+id/selfDeletion_spinner"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:theme="@style/switchTheme"-->
+
+                    <!--app:layout_constraintBottom_toBottomOf="@+id/selfDeletion_days"-->
+                    <!--app:layout_constraintEnd_toStartOf="@id/selfDeletion_days"-->
+                    <!--app:layout_constraintHorizontal_chainStyle="packed"-->
+                    <!--app:layout_constraintStart_toEndOf="@id/selfDeletion"-->
+                    <!--app:layout_constraintTop_toTopOf="@+id/selfDeletion_days"-->
+                    <!--tools:ignore="RtlHardcoded" />-->
+                <!--&lt;!&ndash;app:thumbTint="?attr/switchThumb"&ndash;&gt;-->
+                <!--&lt;!&ndash;app:trackTint="?attr/switchTrack"&ndash;&gt;-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/selfDeletion_days"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/days"-->
+                    <!--android:textColor="?textColor"-->
+                    <!--android:layout_marginStart="8dp"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--app:layout_constraintTop_toBottomOf="@id/underline5"-->
+                    <!--app:layout_constraintHorizontal_chainStyle="packed"-->
+                    <!--app:layout_constraintStart_toEndOf="@id/selfDeletion_spinner"-->
+                    <!--android:layout_marginLeft="8dp" />-->
+
+            <!--</android.support.constraint.ConstraintLayout>-->
+            <!--&lt;!&ndash;</android.support.v7.widget.CardView>&ndash;&gt;-->
+        <!--</android.support.constraint.ConstraintLayout>-->
+    <!--</ScrollView>-->
+
+</android.support.constraint.ConstraintLayout>

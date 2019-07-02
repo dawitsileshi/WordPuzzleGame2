@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.wordpuzzlegame">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ForgotPasswordActivity">
+        </activity>
+        <activity android:name=".GameSettingActivity" />
+        <activity android:name=".KidDisplayActivity" />
+        <activity
+            android:name=".KidListActivity"
+            android:label="@string/title_activity_kid_list" />
+        <activity android:name=".ResultDisplayActivity" />
+        <activity android:name=".ResultsActivity" />
+        <activity android:name=".account.CreateAccountActivity" >
+
+        </activity>
+        <activity android:name=".AddKidActivity" />
+        <activity android:name=".ParentActivity" />
+        <activity android:name=".KidActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity
+            android:name=".AddLanguageActivity"
+            android:label="@string/title_activity_add_word" >
+
+        </activity>
+        <activity
+            android:name=".StudyWordActivity"
+            android:label="@string/title_activity_add_language" >
+
+        </activity>
+        <activity android:name=".AddWordActivity" >
+
+        </activity>
+        <activity android:name=".ResultListActivity" />
+        <activity android:name=".DetailActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_study_words" />
+        <activity android:name=".ChooseQuizActivity" />
+        <activity android:name=".AddNewWord" />
+        <activity android:name=".StudyWordsActivity" />
+        <activity
+            android:name=".account.LoginActivity"
+            android:label="Word Puzzle Game" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

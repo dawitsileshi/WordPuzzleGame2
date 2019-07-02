@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".AddNewWord">
+
+        <TextView
+            android:id="@+id/tv_activity_add_new_word_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add new Word"
+            android:textSize="25sp"
+            android:textColor="@android:color/black"
+            android:padding="8dp"
+            android:layout_margin="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/ib_activity_add_new_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_activity_add_new_word_title"
+            app:srcCompat="@drawable/ic_cake_black_24dp" />
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_activity_add_new_word_eng_cont"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            app:cardElevation="2dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ib_activity_add_new_word">
+
+            <TextView
+                android:id="@+id/tv_activity_add_new_word_eng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="English"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:layout_marginLeft="16dp" />
+
+            <ImageView
+                android:id="@+id/iv_activity_add_new_word_eng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="8dp"
+                app:srcCompat="@drawable/ic_keyboard_arrow_down_24dp"
+                android:layout_gravity="center|end"/>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_activity_add_new_word_eng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/cv_activity_add_new_word_eng_cont"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <EditText
+                android:id="@+id/et_activity_add_new_word_eng_word"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginStart="20dp"
+                android:ems="10"
+                app:layout_constraintBottom_toTopOf="@id/et_activity_add_new_word_eng_sent"
+                app:layout_constraintStart_toStartOf="@id/et_activity_add_new_word_eng_sent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="20dp" />
+
+            <EditText
+                android:id="@+id/et_activity_add_new_word_eng_sent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_margin="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_activity_add_new_word_eng_word" />
+        </android.support.constraint.ConstraintLayout>
+        <!--<EditText-->
+            <!--android:id="@+id/et_activity_add_new_word_eng_word"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="8dp"-->
+            <!--android:layout_marginStart="20dp"-->
+            <!--android:ems="10"-->
+            <!--app:layout_constraintBottom_toTopOf="@id/et_activity_add_new_word_eng_sent"-->
+            <!--app:layout_constraintStart_toStartOf="@id/et_activity_add_new_word_eng_sent"-->
+            <!--app:layout_constraintTop_toBottomOf="@id/cv_activity_add_new_word_eng_cont"-->
+            <!--android:layout_marginLeft="20dp" />-->
+<!---->
+        <!--<EditText-->
+            <!--android:id="@+id/et_activity_add_new_word_eng_sent"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:ems="10"-->
+            <!--android:layout_margin="8dp"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@id/et_activity_add_new_word_eng_word" />-->
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_activity_add_new_word_amh_cont"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            app:cardElevation="2dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_activity_add_new_word_eng">
+
+            <TextView
+                android:id="@+id/tv_activity_add_new_word_amh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Amharic"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:layout_marginLeft="16dp" />
+
+            <ImageView
+                android:id="@+id/iv_activity_add_new_word_amh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="8dp"
+                app:srcCompat="@drawable/ic_keyboard_arrow_down_24dp"
+                android:layout_gravity="center|end"/>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_activity_add_new_word_amh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/cv_activity_add_new_word_amh_cont"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <EditText
+                android:id="@+id/et_activity_add_new_word_amh_word"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginStart="20dp"
+                android:ems="10"
+                app:layout_constraintBottom_toTopOf="@id/et_activity_add_new_word_amh_sent"
+                app:layout_constraintStart_toStartOf="@id/et_activity_add_new_word_amh_sent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="20dp" />
+
+            <EditText
+                android:id="@+id/et_activity_add_new_word_amh_sent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_margin="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_activity_add_new_word_amh_word" />
+        </android.support.constraint.ConstraintLayout>
+        <!--<EditText-->
+            <!--android:id="@+id/et_activity_add_new_word_amh_word"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="8dp"-->
+            <!--android:layout_marginStart="20dp"-->
+            <!--android:ems="10"-->
+            <!--app:layout_constraintBottom_toTopOf="@id/et_activity_add_new_word_amh_sent"-->
+            <!--app:layout_constraintStart_toStartOf="@id/et_activity_add_new_word_amh_sent"-->
+            <!--app:layout_constraintTop_toBottomOf="@id/cv_activity_add_new_word_amh_cont"-->
+            <!--android:layout_marginLeft="20dp" />-->
+
+        <!--<EditText-->
+            <!--android:id="@+id/et_activity_add_new_word_amh_sent"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:ems="10"-->
+            <!--android:layout_margin="8dp"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@id/et_activity_add_new_word_amh_word" />-->
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_activity_add_new_word_tig_cont"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            app:cardElevation="2dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_activity_add_new_word_amh">
+
+            <TextView
+                android:id="@+id/tv_activity_add_new_word_tig"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="Tigrigna"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:layout_marginLeft="16dp" />
+
+            <ImageView
+                android:id="@+id/iv_activity_add_new_word_tig"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:padding="8dp"
+                app:srcCompat="@drawable/ic_keyboard_arrow_down_24dp"
+                android:layout_gravity="center|end"/>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_activity_add_new_word_tig"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/cv_activity_add_new_word_tig_cont"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <EditText
+                android:id="@+id/et_activity_add_new_word_tig_word"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_marginStart="20dp"
+                android:ems="10"
+                app:layout_constraintBottom_toTopOf="@id/et_activity_add_new_word_tig_sent"
+                app:layout_constraintStart_toStartOf="@id/et_activity_add_new_word_tig_sent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="20dp" />
+
+            <EditText
+                android:id="@+id/et_activity_add_new_word_tig_sent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_margin="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_activity_add_new_word_tig_word" />
+        </android.support.constraint.ConstraintLayout>
+
+        <Button
+            android:id="@+id/button_activity_add_new_word"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:text="Insert"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_activity_add_new_word_tig" />
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

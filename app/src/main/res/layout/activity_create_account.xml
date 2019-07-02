@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purpleBlack"
+    tools:context=".account.CreateAccountActivity">
+
+    <TextView
+        android:id="@+id/tv_activity_add_parent_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create an Account"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:padding="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_activity_add_parent_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textColorHint="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_activity_add_parent_title">
+
+        <EditText
+            android:id="@+id/et_activity_add_parent_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/name"
+            android:textColor="@android:color/white"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_activity_add_parent_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gender"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/til_activity_add_parent_name"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <RadioGroup
+        android:id="@+id/rg_activity_add_parent_gender"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        android:padding="8dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/tv_activity_add_parent_gender"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RadioButton
+            android:id="@+id/rb_activity_add_parent_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:buttonTint="@android:color/white"
+            android:text="@string/male"
+            android:textColor="@android:color/white"/>
+
+        <RadioButton
+            android:id="@+id/rb_activity_add_parent_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:buttonTint="@android:color/white"
+            android:text="@string/female"
+            android:textColor="@android:color/white"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv_activity_add_parent_relation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Relation"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/rg_activity_add_parent_gender"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <RadioGroup
+        android:id="@+id/rg_activity_add_parent_relation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="6"
+        android:padding="8dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/tv_activity_add_parent_relation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RadioButton
+            android:id="@+id/rb_activity_add_parent_mother"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:buttonTint="@android:color/white"
+            android:text="@string/mother"
+            android:textColor="@android:color/white"/>
+
+        <RadioButton
+            android:id="@+id/rb_activity_add_parent_father"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:buttonTint="@android:color/white"
+            android:text="@string/father"
+            android:textColor="@android:color/white"/>
+
+        <RadioButton
+            android:id="@+id/rb_activity_add_parent_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:buttonTint="@android:color/white"
+            android:text="@string/other"
+            android:textColor="@android:color/white"/>
+    </RadioGroup>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_activity_add_parent_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textColorHint="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/rg_activity_add_parent_relation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <EditText
+            android:id="@+id/et_activity_add_parent_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="email"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/white"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_activity_add_parent_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textColorHint="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/til_activity_add_parent_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <EditText
+            android:id="@+id/et_activity_add_parent_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="Password"
+            android:textColor="@android:color/white"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_activity_add_parent_confirm_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textColorHint="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/til_activity_add_parent_password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <EditText
+            android:id="@+id/et_activity_add_parent_confirm_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:textColor="@android:color/white"/>
+
+    </android.support.design.widget.TextInputLayout>
+    <Button
+        android:id="@+id/button_activity_create_account_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Create"
+        style="@style/Widget.AppCompat.Button.Colored"
+        app:layout_constraintTop_toBottomOf="@id/til_activity_add_parent_confirm_password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

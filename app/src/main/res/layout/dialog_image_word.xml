@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/iv_dialog"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_margin="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ll_dialog_correct_answer"
+        app:srcCompat="@drawable/ic_image_grey_24dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_dialog_correct_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/iv_dialog"
+        app:layout_constraintBottom_toTopOf="@id/button_dialog"
+        app:layout_constraintStart_toStartOf="@id/iv_dialog"
+        app:layout_constraintEnd_toStartOf="@id/ll_dialog_separator">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:tint="@android:color/holo_green_dark"
+            app:srcCompat="@drawable/ic_check_circle_black_24dp"/>
+        <TextView
+            android:id="@+id/tv_dialog_correct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:layout_margin="4dp"
+            android:textSize="25sp"
+            android:text="Correct"
+            android:textColor="@android:color/holo_green_dark" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_dialog_separator"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:background="@android:color/darker_gray"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toEndOf="@id/ll_dialog_correct_answer"
+        app:layout_constraintEnd_toStartOf="@id/ll_dialog_incorrect_answer"
+        app:layout_constraintTop_toBottomOf="@id/iv_dialog"
+        app:layout_constraintBottom_toTopOf="@id/button_dialog"/>
+
+    <LinearLayout
+        android:id="@+id/ll_dialog_incorrect_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="@id/ll_dialog_correct_answer"
+        app:layout_constraintBottom_toBottomOf="@id/ll_dialog_correct_answer"
+        app:layout_constraintStart_toEndOf="@id/ll_dialog_separator"
+        app:layout_constraintEnd_toEndOf="@id/iv_dialog">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:tint="@android:color/holo_red_dark"
+            app:srcCompat="@drawable/ic_cancel_black_24dp"/>
+        <TextView
+            android:id="@+id/tv_dialog_incorrect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:layout_margin="4dp"
+            android:textSize="25sp"
+            android:text="Incorrect"
+            android:textColor="@android:color/holo_red_dark" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/button_dialog"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Ok"
+        android:textColor="@android:color/white"
+        android:background="@android:color/holo_blue_dark"
+        app:layout_constraintTop_toBottomOf="@id/ll_dialog_correct_answer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

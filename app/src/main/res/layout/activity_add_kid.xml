@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purpleBlack"
+    tools:context=".AddKidActivity">
+
+    <TextView
+        android:id="@+id/tv_activity_add_kid_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kid Information"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        android:padding="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_activity_kid_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textColorHint="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_activity_add_kid_title">
+
+        <EditText
+            android:id="@+id/et_activity_add_kid_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:hint="@string/name"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tv_activity_add_kid_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gender"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/til_activity_kid_name"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <RadioGroup
+        android:id="@+id/rg_activity_add_kid_gender"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        android:padding="8dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/tv_activity_add_kid_gender"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RadioButton
+            android:id="@+id/rb_activity_add_kid_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/male"
+            android:buttonTint="@android:color/white"
+            android:textColor="@android:color/white"/>
+
+        <RadioButton
+            android:id="@+id/rb_activity_add_kid_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="@string/female"
+            android:buttonTint="@android:color/white"
+            android:textColor="@android:color/white"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv_activity_add_kid_grade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/grade"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/rg_activity_add_kid_gender"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/acp_activity_add_kid"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_activity_add_kid_grade"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/button_activity_add_kid_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_margin="8dp"
+        android:text="@string/save"
+        app:layout_constraintTop_toBottomOf="@id/acp_activity_add_kid"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

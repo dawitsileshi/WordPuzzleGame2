@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purpleBlack"
+    tools:context=".HomeActivity">
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv_activity_home"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Choose Account"-->
+        <!--android:textSize="30sp"-->
+        <!--android:padding="8dp"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:textAlignment="center"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintBottom_toTopOf="@id/cv_activity_home_parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"/>-->
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_activity_home_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="@color/purpleLight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/cv_activity_home_kid"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_activity_home_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="28dp"
+            android:src="@drawable/manager"
+            app:civ_border_color="@android:color/white"
+            app:civ_border_width="4dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/civ_activity_home_kid"
+            app:srcCompat="@drawable/manager"/>
+
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_activity_home_kid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="@color/purpleLight"
+        app:layout_constraintTop_toBottomOf="@id/cv_activity_home_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_activity_home_kid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="28dp"
+            app:civ_border_width="4dp"
+            app:civ_border_color="@android:color/white"
+            app:layout_constraintTop_toBottomOf="@id/civ_activity_home_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/boy_and_girl"/>
+    </android.support.v7.widget.CardView>
+    <!--<android.support.design.widget.AppBarLayout-->
+        <!--android:id="@+id/appBarLayout_activity_home"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent">-->
+<!---->
+        <!--<android.support.v7.widget.Toolbar-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"/>-->
+<!---->
+    <!--</android.support.design.widget.AppBarLayout>-->
+
+    <!--<Button-->
+        <!--android:id="@+id/button_activity_home_add_words"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:text="Add new Words"-->
+        <!--android:layout_margin="18dp"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintEnd_toStartOf="@id/button_activity_home_studyWords"-->
+        <!--app:layout_constraintBottom_toTopOf="@id/button_activity_home_chooseQuiz"-->
+        <!--app:layout_constraintStart_toStartOf="parent"/>-->
+        <!--&lt;!&ndash;app:layout_constraintTop_toBottomOf="@id/appBarLayout_activity_home"&ndash;&gt;-->
+
+    <!--<Button-->
+        <!--android:id="@+id/button_activity_home_studyWords"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:text="Study Words"-->
+        <!--android:layout_margin="18dp"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintBottom_toTopOf="@id/button_activity_home_result"-->
+        <!--app:layout_constraintStart_toEndOf="@id/button_activity_home_add_words"/>-->
+        <!--&lt;!&ndash;app:layout_constraintTop_toBottomOf="@id/appBarLayout_activity_home"&ndash;&gt;-->
+
+    <!--<Button-->
+        <!--android:id="@+id/button_activity_home_result"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:text="See Result"-->
+        <!--android:layout_margin="18dp"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/button_activity_home_studyWords"-->
+        <!--app:layout_constraintStart_toEndOf="@id/button_activity_home_chooseQuiz"/>-->
+
+    <!--<Button-->
+        <!--android:id="@+id/button_activity_home_chooseQuiz"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:text="Choose Quiz"-->
+        <!--android:layout_margin="18dp"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toStartOf="@id/button_activity_home_result"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/button_activity_home_add_words"-->
+        <!--app:layout_constraintStart_toStartOf="parent"/>-->
+
+
+
+    <!--<Button-->
+        <!--android:id="@+id/button_activity_home_kid"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_margin="48dp"-->
+        <!--android:textSize="40sp"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:background="@android:color/holo_blue_dark"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/button_activity_home_parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+</android.support.constraint.ConstraintLayout>

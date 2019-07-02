@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/purpleBlack"
+    tools:context=".puzzles.FillRemainingActivity">
+
+    <!--<android.support.design.widget.AppBarLayout-->
+        <!--android:id="@+id/abl_activity_fill_remaining"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent">-->
+<!---->
+        <!--<android.support.v7.widget.Toolbar-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+    <!--</android.support.design.widget.AppBarLayout>-->
+
+    <TextView
+        android:id="@+id/tv_activity_fill_remaining_question_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textColor="@android:color/white"
+        android:text="1"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        android:gravity="center"
+        android:background="@drawable/button_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ll_activity_fill_remaining_hear_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/ll_activity_fill_remaining_hear_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_activity_fill_remaining_word"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="8dp"
+        android:padding="8dp"/>
+
+    <!--<ImageView-->
+        <!--android:id="@+id/iv_activity_fill_remaining"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_margin="8dp"-->
+        <!--app:srcCompat="@drawable/ic_favorite_black_24dp"-->
+        <!--app:layout_constraintEnd_toStartOf="@id/tv_activity_fill_remaining_heart"-->
+        <!--app:layout_constraintTop_toTopOf="@id/tv_activity_fill_remaining_heart"-->
+        <!--app:layout_constraintBottom_toBottomOf="@id/tv_activity_fill_remaining_heart"/>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv_activity_fill_remaining_heart"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="35sp"-->
+        <!--android:text="1"-->
+        <!--android:layout_margin="8dp"-->
+        <!--android:textColor="@android:color/black"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--app:layout_constraintBottom_toTopOf="@id/tv_activity_fill_remaining_word"/>-->
+        <!--app:layout_constraintStart_toEndOf="@id/iv_activity_fill_remaining"-->
+    <TextView
+        android:id="@+id/tv_activity_fill_remaining_word"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button_activity_fill_remaining_next_submit"/>
+
+    <!--<android.support.v7.widget.CardView-->
+        <!--android:id="@+id/cv_activity_fill_remaining_choiceA"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="8dp"-->
+        <!--app:cardBackgroundColor="@color/purpleLight"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/tv_activity_fill_remaining_word"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintEnd_toStartOf="@id/cv_activity_fill_remaining_choiceB">-->
+
+    <TextView
+        android:id="@+id/tv_activity_fill_remaining_choiceA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="18dp"
+        android:padding="8dp"
+        android:textSize="20sp"
+        android:text="A. "
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/tv_activity_fill_remaining_word"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_activity_fill_remaining_choiceB"/>
+    <!--</android.support.v7.widget.CardView>-->
+
+    <!--<android.support.v7.widget.CardView-->
+        <!--android:id="@+id/cv_activity_fill_remaining_choiceB"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="8dp"-->
+        <!--app:cardBackgroundColor="@color/purpleLight"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/tv_activity_fill_remaining_word"-->
+        <!--app:layout_constraintStart_toEndOf="@id/cv_activity_fill_remaining_choiceA"-->
+        <!--app:layout_constraintEnd_toEndOf="parent">-->
+
+    <TextView
+        android:id="@+id/tv_activity_fill_remaining_choiceB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="18dp"
+        android:padding="8dp"
+        android:textSize="20sp"
+        android:text="B. "
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/tv_activity_fill_remaining_word"
+        app:layout_constraintStart_toEndOf="@id/tv_activity_fill_remaining_choiceA"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <!--</android.support.v7.widget.CardView>-->
+
+    <!--<android.support.v7.widget.CardView-->
+        <!--android:id="@+id/cv_activity_fill_remaining_choiceC"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="8dp"-->
+        <!--app:cardBackgroundColor="@color/purpleLight"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/cv_activity_fill_remaining_choiceA"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintBottom_toTopOf="@id/button_activity_fill_remaining_next_submit"-->
+        <!--app:layout_constraintEnd_toStartOf="@id/cv_activity_fill_remaining_choiceD">-->
+
+    <TextView
+        android:id="@+id/tv_activity_fill_remaining_choiceC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="18dp"
+        android:padding="8dp"
+        android:textSize="20sp"
+        android:text="C. "
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/tv_activity_fill_remaining_choiceA"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button_activity_fill_remaining_next_submit"
+        app:layout_constraintEnd_toStartOf="@id/tv_activity_fill_remaining_choiceD"/>
+    <!--</android.support.v7.widget.CardView>-->
+
+    <!--<android.support.v7.widget.CardView-->
+        <!--android:id="@+id/cv_activity_fill_remaining_choiceD"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="8dp"-->
+        <!--app:cardBackgroundColor="@color/purpleLight"-->
+        <!--app:layout_constraintBottom_toTopOf="@id/button_activity_fill_remaining_next_submit"-->
+        <!--app:layout_constraintTop_toBottomOf="@id/cv_activity_fill_remaining_choiceB"-->
+        <!--app:layout_constraintStart_toEndOf="@id/cv_activity_fill_remaining_choiceC"-->
+        <!--app:layout_constraintEnd_toEndOf="parent">-->
+
+    <TextView
+        android:id="@+id/tv_activity_fill_remaining_choiceD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="18dp"
+        android:padding="8dp"
+        android:textSize="20sp"
+        android:text="D. "
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@id/button_activity_fill_remaining_next_submit"
+        app:layout_constraintTop_toBottomOf="@id/tv_activity_fill_remaining_choiceB"
+        app:layout_constraintStart_toEndOf="@id/tv_activity_fill_remaining_choiceC"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <!--</android.support.v7.widget.CardView>-->
+
+    <Button
+        android:id="@+id/button_activity_fill_remaining_next_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/next"
+        android:background="@drawable/button_background"
+        style="@style/Widget.AppCompat.Button.Colored"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_activity_fill_remaining_word" />
+
+</android.support.constraint.ConstraintLayout>

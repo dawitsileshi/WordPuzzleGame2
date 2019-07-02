@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false">
+        <shape>
+            <gradient
+                android:endColor="@color/light_purple" android:startColor="@color/darker_purple"
+                android:type="sweep"
+                android:gradientRadius="200dp"/>
+            <stroke
+                android:width="2dp"
+                android:color="@color/purple"/>
+            <corners
+                android:radius="15dp"/>
+
+        </shape>
+    </item>
+
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="@color/darker_purple"/>
+            <stroke
+                android:width="2dp"
+                android:color="@color/blueGrey"/>
+            <corners
+                android:radius="15dp"/>
+        </shape>
+    </item>
+
+</selector>
