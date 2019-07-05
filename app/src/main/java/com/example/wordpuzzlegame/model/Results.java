@@ -16,6 +16,7 @@ public class Results implements Parcelable {
     private int score;
     private int total;
     private long lang_id;
+    private long kidId;
     private String timeStamp;
     private String answered_word;
     private String unanswered_word;
@@ -34,11 +35,12 @@ public class Results implements Parcelable {
         dataSource = new DataSource(context);
 
     }
-    public Results(String quiz_type, int score, int total) {
+    public Results(String quiz_type, int score, int total, long kidId) {
 
         this.quiz_type = quiz_type;
         this.score = score;
         this.total = total;
+        this.kidId = kidId;
 
     }
 
@@ -141,12 +143,28 @@ public class Results implements Parcelable {
         this.unanswered_word = unanswered_word;
     }
 
-    public ArrayList<Answer> getAnswer() {
+//    public ArrayList<Answer> getAnswer() {
+//        return answers;
+//    }
+
+//    public void setAnswer(ArrayList<Answer> answer) {
+//        this.answers = answer;
+//    }
+
+    public long getKidId() {
+        return kidId;
+    }
+
+    public void setKidId(long kidId) {
+        this.kidId = kidId;
+    }
+
+    public ArrayList<Answer> getAnswers() {
         return answers;
     }
 
-    public void setAnswer(ArrayList<Answer> answer) {
-        this.answers = answer;
+    public void setAnswers(ArrayList<Answer> answers) {
+        this.answers = answers;
     }
 
     public long insertResult(Results results) {
@@ -155,6 +173,7 @@ public class Results implements Parcelable {
         contentValues.put(ItemTables.QUIZ_TYPE, results.getQuiz_type());
         contentValues.put(ItemTables.SCORE, results.getScore());
         contentValues.put(ItemTables.TOTAL, results.getTotal());
+        contentValues.put(ItemTables.KID_ID, results.getKidId());
 
         return dataSource.createItem(contentValues, ItemTables.RESULTS_TABLE);
 
@@ -163,7 +182,7 @@ public class Results implements Parcelable {
     public ArrayList<Results> listResults() {
 
         ArrayList<Results> resultsArrayList = new ArrayList<>();
-        answers = new ArrayList<>();
+        ArrayList<Answer> answers = new ArrayList<>();
 
         Cursor resultsCursor = dataSource.getAll(ItemTables.RESULTS_TABLE);
 //        Cursor answerCursor = dataSource.getAll(ItemTables.ANSWER_TABLE);
@@ -180,31 +199,29 @@ public class Results implements Parcelable {
             String timestamp = resultsCursor.getString(resultsCursor.getColumnIndex(ItemTables.DAY));
 
             Answer answer = null;
-            Cursor answerCursor = dataSource.singleItem(id, ItemTables.ANSWER_TABLE);
+//            Cursor answerCursor = dataSource.singleItem(id, ItemTables.ANSWER_TABLE);
+            Cursor answerCursor = dataSource.items(id, ItemTables.RESULT_ID, ItemTables.ANSWER_TABLE);
             Log.i("answer", String.valueOf(answerCursor.getCount()));
-            if(answerCursor != null) {
-                answerCursor.moveToFirst();
-                while(!answerCursor.isAfterLast()) {
-                    long answerId = answerCursor.getLong(answerCursor.getColumnIndex(ItemTables.ANSWER_ID));
-                    long wordId = answerCursor.getLong(answerCursor.getColumnIndex(ItemTables.WORD_ID));
-                    int correct = answerCursor.getInt(answerCursor.getColumnIndex(ItemTables.CORRECT_INCORRECT));
+            answerCursor.moveToFirst();
+            while(!answerCursor.isAfterLast()) {
+                long answerId = answerCursor.getLong(answerCursor.getColumnIndex(ItemTables.ANSWER_ID));
+                long wordId = answerCursor.getLong(answerCursor.getColumnIndex(ItemTables.WORD_ID));
+                int correct = answerCursor.getInt(answerCursor.getColumnIndex(ItemTables.CORRECT_INCORRECT));
 
-                    if(correct == 1) {
-                        answer = new Answer(answerId, wordId, id, true);
-                    } else {
-                        answer = new Answer(answerId, wordId, id, false);
+                if(correct == 1) {
+                    answer = new Answer(answerId, wordId, id, true);
+                } else {
+                    answer = new Answer(answerId, wordId, id, false);
 
-                    }
-                    answerCursor.moveToNext();
                 }
-            } else {
-                Log.i("answer", "null");
+                answerCursor.moveToNext();
+                answers.add(answer);
             }
 
-            answers.add(answer);
 //            Cursor wordCursor = dataSource.singleItem(wordId, ItemTables.WORD_TABLE);
 
             Results results = new Results(id, gameType, score, total, timestamp, answers);
+            Log.i("size", String.valueOf(answers.size()));
             resultsArrayList.add(results);
 
             resultsCursor.moveToNext();

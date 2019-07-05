@@ -1,11 +1,24 @@
 package com.example.wordpuzzlegame.model;
 
+import android.content.Context;
+
 public class Reward {
 
     private long reward_id;
+    private long kid_id;
     private String game_type;
-    private int seconds;
-    private int heart;
+    private int secondsOrHeart;
+
+    private Context context;
+
+    public Reward(Context context) {
+        this.context = context;
+    }
+
+    private Reward(long kidId, int secondsOrHeart) {
+        this.kid_id = kidId;
+        this.secondsOrHeart = secondsOrHeart;
+    }
 
     public long getReward_id() {
         return reward_id;
@@ -23,19 +36,11 @@ public class Reward {
         this.game_type = game_type;
     }
 
-    public int getSeconds() {
-        return seconds;
+    public int getSecondsOrHeart() {
+        return secondsOrHeart;
     }
 
-    public void setSeconds(int seconds) {
-        this.seconds = seconds;
-    }
-
-    public int getHeart() {
-        return heart;
-    }
-
-    public void setHeart(int heart) {
-        this.heart = heart;
+    public void setSecondsOrHeart(int secondsOrHeart) {
+        this.secondsOrHeart = secondsOrHeart;
     }
 }

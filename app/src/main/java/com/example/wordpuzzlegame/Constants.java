@@ -75,4 +75,6 @@ public class Constants {
         {'ቨ', 'ቩ', 'ቪ', 'ቫ', 'ቬ', 'ቭ', 'ቮ'},
         {'ዸ', 'ዹ', 'ዺ', 'ዻ', 'ዼ', 'ዽ', 'ዾ'},
         {'ጘ', 'ጙ', 'ጚ', 'ጛ', 'ጜ', 'ጝ', 'ጞ'}};
+
+    public static final String WORD_CODE = "wordCode";
 }

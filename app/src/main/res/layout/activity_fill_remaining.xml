@@ -31,7 +31,6 @@
         android:layout_margin="8dp"
         android:padding="8dp"
         android:gravity="center"
-        android:background="@drawable/button_background"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/ll_activity_fill_remaining_hear_container"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,6 +47,30 @@
         android:layout_margin="8dp"
         android:padding="8dp"/>
 
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_activity_fill_remaining_word"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_activity_fill_remaining_heart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_favorite_black_24dp" />
+
+        <TextView
+            android:id="@+id/tv_activity_fill_remaining_heart_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="@android:color/white"
+            android:layout_margin="4dp" />
+
+    </LinearLayout>
     <!--<ImageView-->
         <!--android:id="@+id/iv_activity_fill_remaining"-->
         <!--android:layout_width="wrap_content"-->

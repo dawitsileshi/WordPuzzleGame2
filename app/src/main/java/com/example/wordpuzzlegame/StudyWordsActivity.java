@@ -29,6 +29,8 @@ public class StudyWordsActivity extends AppCompatActivity implements AddLanguage
     private TextView tv_content_study_words;
 
     Languages languages;
+
+    long langId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +44,7 @@ public class StudyWordsActivity extends AppCompatActivity implements AddLanguage
         if(intent != null) {
 
             languages = intent.getParcelableExtra("language");
-            long langId = languages.getLang_id();
+            langId = languages.getLang_id();
 
             tv_content_study_words.setText(languages.getLanguage());
             word = new Word(this);
@@ -73,33 +75,42 @@ public class StudyWordsActivity extends AppCompatActivity implements AddLanguage
         int id = item.getItemId();
 
         if(id == R.id.menu_delete) {
-            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setCancelable(false);
-            builder.setTitle("Confirmation");
-            builder.setMessage("Are you sure you want to delete the language? All data related to this language will be deleted.");
-            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    Languages languages = new Languages(StudyWordsActivity.this);
-                    boolean deleted = languages.deleteLanguage(StudyWordsActivity.this.languages.getLang_id());
-                    if(deleted) {
-                        Toast.makeText(StudyWordsActivity.this, "Deleted Successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(StudyWordsActivity.this, AddLanguageActivity.class));
-                        finish();
+            if(langId <= 3) {
+                Toast.makeText(this, "Sorry, you can not delete this language", Toast.LENGTH_SHORT).show();
+            } else {
+                final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setCancelable(false);
+                builder.setTitle("Confirmation");
+                builder.setMessage("Are you sure you want to delete the language? All data related to this language will be deleted.");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Languages languages = new Languages(StudyWordsActivity.this);
+                        boolean deleted = languages.deleteLanguage(StudyWordsActivity.this.languages.getLang_id());
+                        if (deleted) {
+                            Toast.makeText(StudyWordsActivity.this, "Deleted Successfully", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(StudyWordsActivity.this, AddLanguageActivity.class));
+                            finish();
+                        }
                     }
-                }
-            });
-            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                }
-            });
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
 
-            builder.show();
+                builder.show();
+            }
 
         } else {
-            AddLanguageDialog addLanguageDialog = new AddLanguageDialog().newInstance(languages.getLanguage(), languages.getAlphabets(), "Update");
-            addLanguageDialog.show(getSupportFragmentManager(), "edit_language");
+
+            if(langId <= 3) {
+                Toast.makeText(this, "Sorry, you can not edit this language", Toast.LENGTH_SHORT).show();
+            } else {
+                AddLanguageDialog addLanguageDialog = new AddLanguageDialog().newInstance(languages.getLanguage(), languages.getAlphabets(), "Update");
+                addLanguageDialog.show(getSupportFragmentManager(), "edit_language");
+            }
         }
 
         return super.onOptionsItemSelected(item);

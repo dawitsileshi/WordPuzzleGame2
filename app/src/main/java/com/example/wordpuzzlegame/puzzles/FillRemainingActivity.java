@@ -1,5 +1,6 @@
 package com.example.wordpuzzlegame.puzzles;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,14 +18,19 @@ import android.widget.Toast;
 
 import com.example.wordpuzzlegame.Constants;
 import com.example.wordpuzzlegame.R;
+import com.example.wordpuzzlegame.ResultsActivity;
+import com.example.wordpuzzlegame.model.Answer;
 import com.example.wordpuzzlegame.model.DataSource;
+import com.example.wordpuzzlegame.model.Results;
 import com.example.wordpuzzlegame.model.Word;
+import com.example.wordpuzzlegame.utils.PreferenceUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+// TODO https://www.color-meanings.com/color-psychology-child-behavior-and-learning-through-colors/
 // TODO: the game repeats question if the kids got right, but will change if it is not answered or incorrectly answered
 public class FillRemainingActivity extends AppCompatActivity {
 
@@ -35,7 +41,8 @@ public class FillRemainingActivity extends AppCompatActivity {
             tv_activity_fill_remaining_choiceB,
             tv_activity_fill_remaining_choiceC,
             tv_activity_fill_remaining_choiceD,
-            tv_activity_fill_remaining_question_number;
+            tv_activity_fill_remaining_question_number,
+            tv_activity_fill_remaining_heart_counter;
 //            tv_activity_fill_remaining_heart;
     private LinearLayout ll_activity_fill_remaining_heart_container;
     private Button button_activity_fill_remaining_next_submit;
@@ -112,17 +119,8 @@ public class FillRemainingActivity extends AppCompatActivity {
                 if(index < 4) {
                     // if the user taps any of the choices
                     if (answered) {
-                        // if the user gets it right
-                        if (correctAnswerTVIndex == correctAnswerTag) {
-                            Toast.makeText(FillRemainingActivity.this, "correct answer", Toast.LENGTH_SHORT).show();
-//                            answers.add(true);
-//                            wordIds.add(wordObject.getId());
-                        } else {
-                            Toast.makeText(FillRemainingActivity.this, "Wrong", Toast.LENGTH_SHORT).show();
-//                            answers.add(false);
-//                            wordIds.add(wordObject.getId());
-                        }
-                        submitted = true;
+                        checkAnswer();
+
 //                        Toast.makeText(FillRemainingActivity.this, "Submitted", Toast.LENGTH_SHORT).show();
                     } else {
                         // if the user doesn't tap on any of hte choices
@@ -133,17 +131,19 @@ public class FillRemainingActivity extends AppCompatActivity {
                         } else if (doubleTap == 2) {
                             submitted = true;
                             doubleTap = 0;
+                            answers.add(false);
+                            wordIds.add(wordObject.getId());
                         }
                     }
                     // if the user checks his/her answer
                     if (submitted) {
-                        if(correctAnswerTag == correctAnswerTVIndex) {
-                            score++;
-                        }
-                        answers.add(correctAnswerTVIndex == correctAnswerTag);
+//                        if(correctAnswerTag == correctAnswerTVIndex) {
+//                            score++;
+//                        }
+//                        answers.add(correctAnswerTVIndex == correctAnswerTag);
                         correctAnswerTVIndex = -1;
                         correctAnswerTag = -2;
-                        wordIds.add(wordObject.getId());
+//                        wordIds.add(wordObject.getId());
                         resetEverything();
                         index++;
                         wordObject = words.get(randomIndices.get(index));
@@ -153,27 +153,11 @@ public class FillRemainingActivity extends AppCompatActivity {
                     tv_activity_fill_remaining_question_number.setText(String.valueOf(index+1));
 
                 } else {
-//                    Results results = new Results(FillRemainingActivity.this);
-//                    Results singleResult = new Results()
-//                    results.insertResult()
-                    wordIds.add(wordObject.getId());
-                    answers.add(correctAnswerTVIndex == correctAnswerTag);
-                    if(correctAnswerTag == correctAnswerTVIndex) {
-                        score++;
-                    }
-                    Log.i("The answers", "" + wordIds.size());
-                    for (int i = 0; i < wordIds.size(); i++) {
-                        Log.i("The answers are",  "" + wordIds.get(i) + " " + answers.get(i));
-                    }
-                    Log.i("score", total + "/" + score);
-                    button_activity_fill_remaining_next_submit.setText(R.string.see_results);
-                    tv_activity_fill_remaining_question_number.setText(R.string.game_over);
-                    button_activity_fill_remaining_next_submit.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(FillRemainingActivity.this, "Going to see results", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                    checkAnswer();
+//                    if(correctAnswerTag == correctAnswerTVIndex) {
+//                        score++;
+//                    }
+                    finishGame();
 //                    Toast.makeText(FillRemainingActivity.this, "Finished the quiz", Toast.LENGTH_SHORT).show();
                 }
 //                Toast.makeText(FillRemainingActivity.this, "" + index, Toast.LENGTH_SHORT).show();
@@ -269,13 +253,68 @@ public class FillRemainingActivity extends AppCompatActivity {
         });
     }
 
+    private void finishGame() {
+
+        long kidId = new PreferenceUtil(FillRemainingActivity.this).retrieveLongValue(PreferenceUtil.ACTIVE_USER_ID);
+        Results results = new Results(FillRemainingActivity.this);
+        Results singleResult = new Results("Fill The Remaining Letters", score, total, kidId);
+        long id = results.insertResult(singleResult);
+//                    wordIds.add(wordObject.getId());
+//                    answers.add(correctAnswerTVIndex == correctAnswerTag);
+        Answer answer = new Answer(FillRemainingActivity.this);
+        long result = answer.insertAnswer(wordIds, answers, id);
+        if(result != -1) {
+            Toast.makeText(FillRemainingActivity.this, "Successfully Saved", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(FillRemainingActivity.this, "Not Saved", Toast.LENGTH_SHORT).show();
+        }
+        Log.i("The answers", "" + wordIds.size());
+        for (int i = 0; i < wordIds.size(); i++) {
+            Log.i("The answers are",  "" + wordIds.get(i) + " " + answers.get(i));
+        }
+        Log.i("score", total + "/" + score);
+        button_activity_fill_remaining_next_submit.setText(R.string.see_results);
+        tv_activity_fill_remaining_question_number.setText(R.string.game_over);
+        button_activity_fill_remaining_next_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FillRemainingActivity.this, ResultsActivity.class);
+                intent.putExtra("language", "Amharic");
+                intent.putExtra("gameType", "Fill the remaining word");
+                intent.putExtra("total", total);
+                intent.putExtra("score", score);
+                startActivity(intent);
+                Toast.makeText(FillRemainingActivity.this, "Going to see results", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void checkAnswer() {
+        // if the user gets it right
+        if (correctAnswerTVIndex == correctAnswerTag) {
+            Toast.makeText(FillRemainingActivity.this, "correct answer", Toast.LENGTH_SHORT).show();
+            answers.add(true);
+            wordIds.add(wordObject.getId());
+            score++;
+        } else {
+            Toast.makeText(FillRemainingActivity.this, "Wrong", Toast.LENGTH_SHORT).show();
+            answers.add(false);
+            wordIds.add(wordObject.getId());
+        }
+        submitted = true;
+
+    }
+
     private void inflatingViews() {
+
         tv_activity_fill_remaining_word = findViewById(R.id.tv_activity_fill_remaining_word);
         tv_activity_fill_remaining_choiceA = findViewById(R.id.tv_activity_fill_remaining_choiceA);
         tv_activity_fill_remaining_choiceB = findViewById(R.id.tv_activity_fill_remaining_choiceB);
         tv_activity_fill_remaining_choiceC = findViewById(R.id.tv_activity_fill_remaining_choiceC);
         tv_activity_fill_remaining_choiceD = findViewById(R.id.tv_activity_fill_remaining_choiceD);
         tv_activity_fill_remaining_question_number = findViewById(R.id.tv_activity_fill_remaining_question_number);
+        tv_activity_fill_remaining_heart_counter = findViewById(R.id.tv_activity_fill_remaining_heart_counter);
+
 //        tv_activity_fill_remaining_heart = findViewById(R.id.tv_activity_fill_remaining_heart);
 
 //        iv_activity_fill_remaining = findViewById(R.id.iv_activity_fill_remaining);
@@ -464,78 +503,6 @@ public class FillRemainingActivity extends AppCompatActivity {
         englishChars = Constants.ENGLISH_LETTERS;
         amharicChars = Constants.AMHARIC_LETTERS;
         tigrignaChars = Constants.TIGRIGNA_LETTERS;
-//        englishChars = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-//        amharicChars = new char[][]{{'ሀ', 'ሁ', 'ሂ', 'ሃ', 'ሄ', 'ህ', 'ሆ'},
-//                {'ለ', 'ሉ', 'ሊ', 'ላ', 'ሌ', 'ል', 'ሎ'},
-//                {'ሐ', 'ሑ', 'ሒ', 'ሓ', 'ሔ', 'ሕ', 'ሖ'},
-//                {'መ', 'ሙ', 'ሚ', 'ማ', 'ሜ', 'ም', 'ሞ'},
-//                {'ሠ', 'ሡ', 'ሢ', 'ሣ', 'ሤ', 'ሥ', 'ሦ'},
-//                {'ረ', 'ሩ', 'ሪ', 'ራ', 'ሬ', 'ር', 'ሮ'},
-//                {'ሰ', 'ሱ', 'ሲ', 'ሳ', 'ሴ', 'ስ', 'ሶ'},
-//                {'ሸ', 'ሹ', 'ሺ', 'ሻ', 'ሼ', 'ሽ', 'ሾ'},
-//                {'ቀ', 'ቁ', 'ቂ', 'ቃ', 'ቄ', 'ቅ', 'ቆ'},
-//                {'በ', 'ቡ', 'ቢ', 'ባ', 'ቤ', 'ብ', 'ቦ'},
-//                {'ተ', 'ቱ', 'ቲ', 'ታ', 'ቴ', 'ት', 'ቶ'},
-//                {'ቸ', 'ቹ', 'ቺ', 'ቻ', 'ቼ', 'ች', 'ቾ'},
-//                {'ኅ', 'ኁ', 'ኂ', 'ኃ', 'ኄ', 'ኅ', 'ኆ'},
-//                {'ነ', 'ኑ', 'ኒ', 'ና', 'ኔ', 'ን', 'ኖ'},
-//                {'ኘ', 'ኙ', 'ኚ', 'ኛ', 'ኜ', 'ኝ', 'ኞ'},
-//                {'አ', 'ኡ', 'ኢ', 'አ', 'ኤ', 'እ', 'ኦ'},
-//                {'ከ', 'ኩ', 'ኪ', 'ካ', 'ኬ', 'ክ', 'ኮ'},
-//                {'ኸ', 'ኹ', 'ኺ', 'ኻ', 'ኼ', 'ኽ', 'ኾ'},
-//                {'ወ', 'ዉ', 'ዊ', 'ዋ', 'ዌ', 'ው', 'ዎ'},
-//                {'ዐ', 'ዑ', 'ዒ', 'ዓ', 'ዔ', 'ዕ', 'ዖ'},
-//                {'ዘ', 'ዙ', 'ዚ', 'ዛ', 'ዜ', 'ዝ', 'ዞ'},
-//                {'ዠ', 'ዡ', 'ዢ', 'ዣ', 'ዤ', 'ዥ', 'ዦ'},
-//                {'የ', 'ዩ', 'ዪ', 'ያ', 'ዬ', 'ይ', 'ዮ'},
-//                {'ደ', 'ዱ', 'ዲ', 'ዳ', 'ዴ', 'ድ', 'ዶ'},
-//                {'ጀ', 'ጁ', 'ጂ', 'ጃ', 'ጄ', 'ጅ', 'ጆ'},
-//                {'ገ', 'ጉ', 'ጊ', 'ጋ', 'ጌ', 'ግ', 'ጎ'},
-//                {'ጠ', 'ጡ', 'ጢ', 'ጣ', 'ጤ', 'ጥ', 'ጦ'},
-//                {'ጨ', 'ጩ', 'ጪ', 'ጫ', 'ጬ', 'ጭ', 'ጮ'},
-//                {'ጰ', 'ጱ', 'ጲ', 'ጳ', 'ጴ', 'ጵ', 'ጶ'},
-//                {'ጸ', 'ጹ', 'ጺ', 'ጻ', 'ጼ', 'ጽ', 'ጾ'},
-//                {'ፀ', 'ፁ', 'ፂ', 'ፃ', 'ፄ', 'ፅ', 'ፆ'},
-//                {'ፈ', 'ፉ', 'ፊ', 'ፋ', 'ፌ', 'ፍ', 'ፎ'},
-//                {'ፐ', 'ፑ', 'ፒ', 'ፓ', 'ፔ', 'ፕ', 'ፖ'}};
-//
-//        tigrignaChars = new char[][]{{'ሀ', 'ሁ', 'ሂ', 'ሃ', 'ሄ', 'ህ', 'ሆ'},
-//                {'ለ', 'ሉ', 'ሊ', 'ላ', 'ሌ', 'ል', 'ሎ'},
-//                {'ሐ', 'ሑ', 'ሒ', 'ሓ', 'ሔ', 'ሕ', 'ሖ'},
-//                {'መ', 'ሙ', 'ሚ', 'ማ', 'ሜ', 'ም', 'ሞ'},
-//                {'ሠ', 'ሡ', 'ሢ', 'ሣ', 'ሤ', 'ሥ', 'ሦ'},
-//                {'ረ', 'ሩ', 'ሪ', 'ራ', 'ሬ', 'ር', 'ሮ'},
-//                {'ሰ', 'ሱ', 'ሲ', 'ሳ', 'ሴ', 'ስ', 'ሶ'},
-//                {'ሸ', 'ሹ', 'ሺ', 'ሻ', 'ሼ', 'ሽ', 'ሾ'},
-//                {'ቀ', 'ቁ', 'ቂ', 'ቃ', 'ቄ', 'ቅ', 'ቆ'},
-//                {'ቐ', 'ቑ', 'ቒ', 'ቓ', 'ቔ', 'ቕ', 'ቖ'},
-//                {'በ', 'ቡ', 'ቢ', 'ባ', 'ቤ', 'ብ', 'ቦ'},
-//                {'ተ', 'ቱ', 'ቲ', 'ታ', 'ቴ', 'ት', 'ቶ'},
-//                {'ቸ', 'ቹ', 'ቺ', 'ቻ', 'ቼ', 'ች', 'ቾ'},
-//                {'ኅ', 'ኁ', 'ኂ', 'ኃ', 'ኄ', 'ኅ', 'ኆ'},
-//                {'ነ', 'ኑ', 'ኒ', 'ና', 'ኔ', 'ን', 'ኖ'},
-//                {'ኘ', 'ኙ', 'ኚ', 'ኛ', 'ኜ', 'ኝ', 'ኞ'},
-//                {'አ', 'ኡ', 'ኢ', 'አ', 'ኤ', 'እ', 'ኦ'},
-//                {'ከ', 'ኩ', 'ኪ', 'ካ', 'ኬ', 'ክ', 'ኮ'},
-//                {'ኸ', 'ኹ', 'ኺ', 'ኻ', 'ኼ', 'ኽ', 'ኾ'},
-//                {'ወ', 'ዉ', 'ዊ', 'ዋ', 'ዌ', 'ው', 'ዎ'},
-//                {'ዐ', 'ዑ', 'ዒ', 'ዓ', 'ዔ', 'ዕ', 'ዖ'},
-//                {'ዘ', 'ዙ', 'ዚ', 'ዛ', 'ዜ', 'ዝ', 'ዞ'},
-//                {'ዠ', 'ዡ', 'ዢ', 'ዣ', 'ዤ', 'ዥ', 'ዦ'},
-//                {'የ', 'ዩ', 'ዪ', 'ያ', 'ዬ', 'ይ', 'ዮ'},
-//                {'ደ', 'ዱ', 'ዲ', 'ዳ', 'ዴ', 'ድ', 'ዶ'},
-//                {'ጀ', 'ጁ', 'ጂ', 'ጃ', 'ጄ', 'ጅ', 'ጆ'},
-//                {'ገ', 'ጉ', 'ጊ', 'ጋ', 'ጌ', 'ግ', 'ጎ'},
-//                {'ጠ', 'ጡ', 'ጢ', 'ጣ', 'ጤ', 'ጥ', 'ጦ'},
-//                {'ጨ', 'ጩ', 'ጪ', 'ጫ', 'ጬ', 'ጭ', 'ጮ'},
-//                {'ጰ', 'ጱ', 'ጲ', 'ጳ', 'ጴ', 'ጵ', 'ጶ'},
-//                {'ጸ', 'ጹ', 'ጺ', 'ጻ', 'ጼ', 'ጽ', 'ጾ'},
-//                {'ፀ', 'ፁ', 'ፂ', 'ፃ', 'ፄ', 'ፅ', 'ፆ'},
-//                {'ፈ', 'ፉ', 'ፊ', 'ፋ', 'ፌ', 'ፍ', 'ፎ'},
-//                {'ፐ', 'ፑ', 'ፒ', 'ፓ', 'ፔ', 'ፕ', 'ፖ'},
-//                {'ቨ', 'ቩ', 'ቪ', 'ቫ', 'ቬ', 'ቭ', 'ቮ'},
-//                {'ዸ', 'ዹ', 'ዺ', 'ዻ', 'ዼ', 'ዽ', 'ዾ'},
-//                {'ጘ', 'ጙ', 'ጚ', 'ጛ', 'ጜ', 'ጝ', 'ጞ'}};
 
         if(langCode == 1) {
             for (char aChar : englishChars) {
@@ -586,6 +553,12 @@ public class FillRemainingActivity extends AppCompatActivity {
         char[] tempChars = {choiceChars.get(0), choiceChars.get(1)};
         choiceChars.clear();
 
+        char[] choiceTag;
+        if(langCode == 0) {
+            choiceTag = new char[]{'A', 'B', 'C', 'D'};
+        } else {
+            choiceTag = new char[]{'ሀ', 'ለ', 'ሐ', 'መ'};
+        }
         int j = 0;
         for (int i = 0; i < 4; i++) {
             if(i == correctAnswerTag) {
@@ -616,7 +589,7 @@ public class FillRemainingActivity extends AppCompatActivity {
             String incorrectAnswer = "[" + firstChar + ", " + secondChar + "]";
 //            Log.i("The choices", choiceChars.get(index) + " " + choiceChars.get(index++));
 //            index++;
-            textView.append(incorrectAnswer);
+            textView.setText(String.valueOf(choiceTag[i]) + ": " + incorrectAnswer);
 
         }
 //        tv_activity_fill_remaining_choiceA.setText(choice);

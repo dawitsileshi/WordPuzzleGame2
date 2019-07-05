@@ -156,4 +156,8 @@ public class DataSource {
     public Cursor loginParent(String email) {
         return sqLiteDatabase.query(ItemTables.PARENT_TABLE, new String[]{ItemTables.PARENT_EMAIL, ItemTables.PARENT_PASSWORD}, ItemTables.PARENT_EMAIL + " = '" + email + "'", null, null, null, null);
     }
+
+    public long updateItem(ContentValues contentValues, String tableName, String column, long columnValue){
+        return sqLiteDatabase.update(tableName, contentValues, column + " = ?", new String[]{String.valueOf(columnValue)});
+    }
 }

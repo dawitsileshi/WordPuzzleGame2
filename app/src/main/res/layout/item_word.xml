@@ -14,7 +14,7 @@
             <ImageView
                 android:id="@+id/iv_item_word"
                 android:layout_width="120dp"
-                android:layout_height="wrap_content"
+                android:layout_height="120dp"
                 android:layout_margin="8dp"
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"

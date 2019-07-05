@@ -12,8 +12,8 @@
 
         <ImageView
             android:id="@+id/iv_item_specific_language"
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/tv_item_specific_language"
             app:layout_constraintStart_toStartOf="parent"

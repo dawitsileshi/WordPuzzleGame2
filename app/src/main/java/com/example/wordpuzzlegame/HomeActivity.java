@@ -1,11 +1,15 @@
 package com.example.wordpuzzlegame;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.wordpuzzlegame.account.LoginActivity;
+import com.example.wordpuzzlegame.model.Assets;
 import com.example.wordpuzzlegame.model.DataSource;
 import com.example.wordpuzzlegame.model.ItemTables;
 
@@ -29,6 +33,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         dataSource = new DataSource(this);
+
 
         Toast.makeText(this, String.valueOf(dataSource.getAll(ItemTables.WORD_TABLE).getCount()), Toast.LENGTH_SHORT).show();
 
@@ -57,7 +62,7 @@ public class HomeActivity extends AppCompatActivity {
         civ_activity_kid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startAnotherActivity(KidActivity.class);
+                startAnotherActivity(KidListActivity.class);
             }
         });
     }
@@ -66,5 +71,28 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(new Intent(this, aClass));
     }
 
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+        final AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle("Confirmation");
+        builder.setMessage("Sure to log out?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(HomeActivity.this, LoginActivity.class));
+                finish();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
 
+        builder.show();
+
+
+    }
 }

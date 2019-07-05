@@ -81,6 +81,9 @@ public class MatchImageActivity extends AppCompatActivity implements MatchImageD
 
     private Results results;
 
+    private ArrayList<Boolean> answers;
+    private ArrayList<Long> wordIds;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +94,9 @@ public class MatchImageActivity extends AppCompatActivity implements MatchImageD
         random = new Random();
 
         results = new Results(this);
+
+        answers = new ArrayList<>();
+        wordIds = new ArrayList<>();
 
         words = word.wordArrayList(2, true);
         choices = word.wordArrayList(2, true);
@@ -248,10 +254,15 @@ public class MatchImageActivity extends AppCompatActivity implements MatchImageD
 
             correctAnswer = textViews[finalI].getText().toString();
             wrongAnswer = "";
+
+            wordIds.add(singleWord.getId());
+            answers.add(true);
             Toast.makeText(this, "Correct Answer", Toast.LENGTH_SHORT).show();
 
         } else {
 
+            answers.add(false);
+            wordIds.add(singleWord.getId());
             correctAnswer = textViews[correctAnswerSpot].getText().toString();
             wrongAnswer = textViews[finalI].getText().toString();
             Toast.makeText(this, "Wrong Answer", Toast.LENGTH_SHORT).show();

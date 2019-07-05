@@ -20,6 +20,7 @@ import com.example.wordpuzzlegame.model.Answer;
 import com.example.wordpuzzlegame.model.DataSource;
 import com.example.wordpuzzlegame.model.Results;
 import com.example.wordpuzzlegame.model.Word;
+import com.example.wordpuzzlegame.utils.PreferenceUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -152,7 +153,7 @@ public class JumbledSingleWordActivity extends AppCompatActivity {
 
     private void startTheCouter() {
 
-        Thread t=new Thread(){
+        Thread t = new Thread(){
 
             @Override
             public void run(){
@@ -185,13 +186,14 @@ public class JumbledSingleWordActivity extends AppCompatActivity {
     private void finishQuiz() {
 
         finished = true;
-
+        checkAnswer(assembledWord);
         ll_puzzle_jumbled_choiceContainer.setVisibility(View.GONE);
         ll_puzzle_jumbled_answerContainer.setVisibility(View.GONE);
         button_puzzle_jumbled_next_submit.setText(R.string.see_results);
         tv_puzzle_jumbled_question.setText(R.string.game_over);
 
-        Results singleResult = new Results("Jumbled Word", score, total);
+        long kidId = new PreferenceUtil(this).retrieveLongValue(PreferenceUtil.ACTIVE_USER_ID);
+        Results singleResult = new Results("Jumbled Word", score, total, kidId);
         long id = results.insertResult(singleResult);
         if(id == -1) {
 
@@ -226,7 +228,9 @@ public class JumbledSingleWordActivity extends AppCompatActivity {
 //            questionAnswer.put(id, true);
             wordIds.add(id);
             answers.add(true);
-            score++;
+            if(!finished) {
+                score++;
+            }
             Toast.makeText(this, "You are correct", Toast.LENGTH_SHORT).show();
 
         } else {
@@ -236,7 +240,7 @@ public class JumbledSingleWordActivity extends AppCompatActivity {
 //            questionAnswer.put(id, false);
 
         }
-        Toast.makeText(this, "The final string is " + question, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "The final string is " + question, Toast.LENGTH_SHORT).show();
 
     }
 

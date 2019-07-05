@@ -8,9 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.wordpuzzlegame.HomeActivity;
 import com.example.wordpuzzlegame.Parent;
 import com.example.wordpuzzlegame.ParentActivity;
 import com.example.wordpuzzlegame.R;
+import com.example.wordpuzzlegame.utils.PreferenceUtil;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -50,7 +52,9 @@ public class LoginActivity extends AppCompatActivity {
                 if(checkInserted(email, password)) {
                     int result = parent.loginParent(email, password);
                     if(result == 1) {
-                        startActivity(new Intent(LoginActivity.this, ParentActivity.class));
+                        new PreferenceUtil(LoginActivity.this).saveBooleanValue(true, PreferenceUtil.PARENT_ACTIVE);
+                        startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                        finish();
                     } else if(result == 0) {
                         Toast.makeText(LoginActivity.this, "Incorrect Password", Toast.LENGTH_SHORT).show();
                     } else if(result == -1) {

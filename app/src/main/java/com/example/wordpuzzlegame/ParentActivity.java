@@ -33,7 +33,7 @@ public class ParentActivity extends AppCompatActivity {
         iv_activity_add_word.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ParentActivity.this, AddWordActivity.class));
+                startActivity(new Intent(ParentActivity.this, StudyWordActivity.class));
 
             }
         });
@@ -41,7 +41,7 @@ public class ParentActivity extends AppCompatActivity {
         iv_activity_add_kid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ParentActivity.this, KidListActivity.class));
+                startActivity(new Intent(ParentActivity.this, AddKidActivity.class));
 
             }
         });

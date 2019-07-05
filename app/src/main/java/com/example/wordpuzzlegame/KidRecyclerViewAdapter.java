@@ -16,9 +16,16 @@ public class KidRecyclerViewAdapter extends RecyclerView.Adapter<KidRecyclerView
 
     ArrayList<Kid> kids;
 
-    public KidRecyclerViewAdapter(ArrayList<Kid> kids) {
+    public KidRecyclerViewAdapter(ArrayList<Kid> kids, KidClicked kidClicked) {
         this.kids = kids;
+        this.kidClicked = kidClicked;
     }
+
+    public interface KidClicked {
+        void onKidClicked(Kid kid);
+    }
+
+    public KidClicked kidClicked;
 
     @NonNull
     @Override
@@ -46,7 +53,7 @@ public class KidRecyclerViewAdapter extends RecyclerView.Adapter<KidRecyclerView
         return kids.size();
     }
 
-    public class KidViewHolder extends RecyclerView.ViewHolder {
+    public class KidViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public TextView tv_item_kid;
         private ImageView iv_item_kid;
@@ -57,6 +64,12 @@ public class KidRecyclerViewAdapter extends RecyclerView.Adapter<KidRecyclerView
             tv_item_kid = itemView.findViewById(R.id.tv_item_kid);
             iv_item_kid = itemView.findViewById(R.id.iv_item_kid);
 
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            kidClicked.onKidClicked(kids.get(getAdapterPosition()));
         }
     }
 }

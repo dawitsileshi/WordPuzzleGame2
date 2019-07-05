@@ -22,12 +22,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<Word> amharicWords;
     private ArrayList<Word> tigrignaWords;
 
-    public RecyclerViewAdapter(ArrayList<Word> englishWords, ArrayList<Word> amharicWords, ArrayList<Word> tigrignaWords) {
+    public RecyclerViewAdapter(ArrayList<Word> englishWords, ArrayList<Word> amharicWords, ArrayList<Word> tigrignaWords, ClickedLongClicked clickedLongClicked) {
         this.englishWords = englishWords;
         this.amharicWords = amharicWords;
         this.tigrignaWords = tigrignaWords;
+        this.clickedLongClicked = clickedLongClicked;
     }
 
+    public interface ClickedLongClicked {
+        void clicked(long wordCode);
+        void longClicked(long wordCode);
+    }
+
+    private ClickedLongClicked clickedLongClicked;
 //    private ArrayList<Words> wordList;
 //
 //    public RecyclerViewAdapter(ArrayList<Words> words) {
@@ -77,7 +84,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return englishWords.size();
     }
 
-    public class WordViewHolder extends RecyclerView.ViewHolder {
+    public class WordViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
         private TextView tv_item_word_english, tv_item_word_amharic, tv_item_word_tigrigna;
         private ImageView iv_item_word;
@@ -90,6 +97,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             tv_item_word_tigrigna = itemView.findViewById(R.id.tv_item_word_tigrigna);
 
             iv_item_word = itemView.findViewById(R.id.iv_item_word);
+
+            itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            clickedLongClicked.clicked(amharicWords.get(getAdapterPosition()).getWord_code());
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            clickedLongClicked.longClicked(amharicWords.get(getAdapterPosition()).getWord_code());
+            return true;
         }
     }
 }

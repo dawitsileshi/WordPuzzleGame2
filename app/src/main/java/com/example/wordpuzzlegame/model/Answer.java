@@ -2,8 +2,10 @@ package com.example.wordpuzzlegame.model;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -131,6 +133,7 @@ public class Answer implements Parcelable {
 
         long result = 0;
 
+        Log.i("received size", String.valueOf(answers.size()));
         for (int i = 0; i < wordIds.size(); i++) {
 
             ContentValues contentValues = new ContentValues();
@@ -150,6 +153,35 @@ public class Answer implements Parcelable {
         }
         return result;
 
+    }
+
+    public ArrayList<Answer> getByResult(long resultId) {
+
+        Cursor cursor = dataSource.items(resultId, ItemTables.RESULT_ID, ItemTables.ANSWER_TABLE);
+
+        cursor.moveToFirst();
+
+        ArrayList<Answer> answers = new ArrayList<>();
+
+        while(!cursor.isAfterLast()) {
+
+            Answer answer;
+            long answerId = cursor.getLong(cursor.getColumnIndex(ItemTables.ANSWER_ID));
+            long wordId = cursor.getLong(cursor.getColumnIndex(ItemTables.WORD_ID));
+            int correct = cursor.getInt(cursor.getColumnIndex(ItemTables.CORRECT_INCORRECT));
+
+            if(correct == 1) {
+                answer = new Answer(answerId, wordId, result_id, true);
+            } else {
+                answer = new Answer(answerId, wordId, result_id, false);
+
+            }
+            cursor.moveToNext();
+            answers.add(answer);
+
+        }
+        cursor.close();
+        return answers;
     }
 
     @Override

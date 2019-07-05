@@ -1,5 +1,6 @@
 package com.example.wordpuzzlegame;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatSpinner;
@@ -33,18 +34,12 @@ public class AddKidActivity extends AppCompatActivity {
 
     private Kid kid;
 
-    private KidRecyclerViewAdapter kidRecyclerViewAdapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_kid);
 
         kid = new Kid(this);
-
-        ArrayList<Kid> kids = kid.kids();
-
-        kidRecyclerViewAdapter = new KidRecyclerViewAdapter(kids);
 
         et_activity_add_kid = findViewById(R.id.et_activity_add_kid_name);
 
@@ -85,7 +80,11 @@ public class AddKidActivity extends AppCompatActivity {
                     Kid kid = new Kid(name, genderRadioButton.getText().toString(), grade);
                     long result = AddKidActivity.this.kid.addKid(kid);
                     if(result != -1) {
-
+                        Toast.makeText(AddKidActivity.this, "Successfully Added", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(AddKidActivity.this, KidListActivity.class));
+                        finish();
+                    } else {
+                        Toast.makeText(AddKidActivity.this, "Something is wrong with the saving, please try again.", Toast.LENGTH_SHORT).show();
                     }
                 }
                 Toast.makeText(AddKidActivity.this, String.valueOf(grade), Toast.LENGTH_SHORT).show();

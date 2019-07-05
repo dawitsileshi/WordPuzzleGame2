@@ -28,6 +28,9 @@ public class ResultListActivity extends AppCompatActivity implements ResultsRecy
         results = new Results(this);
 
         resultsArrayList = results.listResults();
+
+        int count = new DataSource(this).getAll(ItemTables.ANSWER_TABLE).getCount();
+
         Toast.makeText(this, String.valueOf(resultsArrayList.size()), Toast.LENGTH_SHORT).show();
 
         rv_activity_resultsList = findViewById(R.id.rv_activity_resultsList);
@@ -42,6 +45,7 @@ public class ResultListActivity extends AppCompatActivity implements ResultsRecy
 
     @Override
     public void clicked(Results result) {
+        Toast.makeText(this, result.getAnswers().size() + " is the number of answers saved", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, ResultDisplayActivity.class);
         intent.putExtra("result", result);
         startActivity(intent);

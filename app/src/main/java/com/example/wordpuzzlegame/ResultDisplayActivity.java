@@ -3,6 +3,7 @@ package com.example.wordpuzzlegame;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -37,6 +38,7 @@ public class ResultDisplayActivity extends AppCompatActivity {
 
             results = intent.getParcelableExtra("result");
 
+            Log.i("answer", String.valueOf(results.getAnswers() == null));
             tv_activity_result_score.setText(String.valueOf(results.getScore()));
             tv_activity_result_total.setText(String.valueOf(results.getTotal()));
             tv_activity_result_quizType.setText(results.getQuiz_type());
@@ -45,10 +47,11 @@ public class ResultDisplayActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    ArrayList<Answer> answer = results.getAnswer();
+                    ArrayList<Answer> answer = new Answer(ResultDisplayActivity.this).getByResult(results.getId());
+//                    ArrayList<Answer> answer = results.getAnswers();
 
                     for (int i = 0; i < answer.size(); i++) {
-                        tv_activity_result_correct_answer.append(answer.get(i).getResult_id() + " ");
+                        tv_activity_result_correct_answer.append(answer.get(i).getWord_id() + " ");
                     }
 
                 }

@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Word {
@@ -13,6 +14,7 @@ public class Word {
     private long word_code;
     private long lang_id;
     private byte[] image;
+    private String langName;
 
     private Context context;
     private DataSource dataSource;
@@ -46,6 +48,14 @@ public class Word {
         this.image = image;
     }
 
+    public Word(long id, String word, long word_code, long lang_id, byte[] image, String langName) {
+        this.id = id;
+        this.word = word;
+        this.word_code = word_code;
+        this.lang_id = lang_id;
+        this.image = image;
+        this.langName = langName;
+    }
     public long getId() {
         return id;
     }
@@ -209,6 +219,40 @@ public class Word {
 
     }
 
+    public int deleteWords(long word_code) {
+
+        return dataSource.deleteByLong(word_code, ItemTables.KID_TABLE, ItemTables.WORD_CODE);
+
+    }
+
+    public ArrayList<Word> getByWordCode(long wordCode) {
+
+        ArrayList<Word> words = new ArrayList<>();
+
+        Cursor wordCursor = dataSource.items(wordCode, ItemTables.WORD_CODE, ItemTables.WORD_TABLE);
+
+        wordCursor.moveToFirst();
+
+        while(!wordCursor.isAfterLast()) {
+            long wordId = wordCursor.getLong(wordCursor.getColumnIndex(ItemTables.WORD_ID));
+            long langId = wordCursor.getLong(wordCursor.getColumnIndex(ItemTables.LANG_ID));
+            String wordName = wordCursor.getString(wordCursor.getColumnIndex(ItemTables.WORD));
+            Cursor langCursor = dataSource.items(langId, ItemTables.LANG_ID, ItemTables.LANGUAGE_TABLE);
+            langCursor.moveToFirst();
+            String langName = langCursor.getString(langCursor.getColumnIndex(ItemTables.LANGUAGE));
+            Cursor assetCursor = dataSource.items(wordCode, ItemTables.WORD_CODE, ItemTables.ASSETS_TABLE);
+            assetCursor.moveToFirst();
+            byte[] image = assetCursor.getBlob(assetCursor.getColumnIndex(ItemTables.IMAGE));
+
+            Word word = new Word(wordId, wordName, wordCode, langId, image, langName);
+            words.add(word);
+            wordCursor.moveToNext();
+            langCursor.close();
+            assetCursor.close();
+        }
+
+        return words;
+    }
     //    private long id;
 //    private String word;
 //    private String word_definition;

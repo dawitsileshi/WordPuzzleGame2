@@ -7,13 +7,25 @@
     android:background="@color/purpleBlack"
     tools:context=".KidActivity">
 
+
+    <TextView
+        android:id="@+id/tv_activity_kid_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <android.support.v7.widget.CardView
         android:id="@+id/cv_activity_kid_study"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="8dp"
         app:cardBackgroundColor="@color/purpleLight"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_activity_kid_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/cv_activity_kid_play"
         app:layout_constraintBottom_toTopOf="@id/cv_activity_kid_high_score">
@@ -36,7 +48,7 @@
         android:layout_marginStart="8dp"
         app:cardBackgroundColor="@color/purpleLight"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_activity_kid_name"
         app:layout_constraintStart_toEndOf="@id/cv_activity_kid_study"
         app:layout_constraintBottom_toBottomOf="@id/cv_activity_kid_study">
 
