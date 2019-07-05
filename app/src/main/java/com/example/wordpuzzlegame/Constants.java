@@ -77,4 +77,8 @@ public class Constants {
         {'ጘ', 'ጙ', 'ጚ', 'ጛ', 'ጜ', 'ጝ', 'ጞ'}};
 
     public static final String WORD_CODE = "wordCode";
+
+    public static final String FILL_IN_THE_BLANK_GAME = "Fill Remaining Letters";
+    public static final String JUMBLED_WORD = "Jumbled Word";
+    public static final String MATCH_IMAGE = "Match Image With Word";
 }

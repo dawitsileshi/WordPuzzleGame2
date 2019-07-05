@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.wordpuzzlegame.Constants;
 import com.example.wordpuzzlegame.R;
 import com.example.wordpuzzlegame.ResultsActivity;
 import com.example.wordpuzzlegame.model.Answer;
@@ -66,6 +67,7 @@ public class JumbledSingleWordActivity extends AppCompatActivity {
     private char[][] amharicChars;
     private char[][] tigrignaChars;
 
+    private long langId = 2;
     Results results;
 
     int count = 0;
@@ -93,7 +95,7 @@ public class JumbledSingleWordActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(JumbledSingleWordActivity.this, ResultsActivity.class);
                     intent.putExtra("language", "Amharic");
-                    intent.putExtra("gameType", "Jumbled Word");
+                    intent.putExtra("gameType", Constants.JUMBLED_WORD);
                     intent.putExtra("total", total);
                     intent.putExtra("score", score);
                     startActivity(intent);
@@ -193,7 +195,7 @@ public class JumbledSingleWordActivity extends AppCompatActivity {
         tv_puzzle_jumbled_question.setText(R.string.game_over);
 
         long kidId = new PreferenceUtil(this).retrieveLongValue(PreferenceUtil.ACTIVE_USER_ID);
-        Results singleResult = new Results("Jumbled Word", score, total, kidId);
+        Results singleResult = new Results(Constants.JUMBLED_WORD, score, total, kidId, langId);
         long id = results.insertResult(singleResult);
         if(id == -1) {
 
@@ -292,7 +294,7 @@ public class JumbledSingleWordActivity extends AppCompatActivity {
 
         word = new Word(this);
         dataSource = new DataSource(this);
-        words = word.wordArrayList(2, false);
+        words = word.wordArrayList(langId, false);
 //        words = word.wordArrayList("ENGLISH");
 
         results = new Results(this);

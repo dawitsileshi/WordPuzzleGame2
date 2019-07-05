@@ -22,6 +22,10 @@ public class DataSource {
         sqLiteDatabase = this.sqLiteOpenHelper.getWritableDatabase();
     }
 
+    public SQLiteDatabase getSqLiteDatabase() {
+        return sqLiteDatabase;
+    }
+
     public Cursor getAllElements(String lang) {
 
         String tableName;

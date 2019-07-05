@@ -35,12 +35,13 @@ public class Results implements Parcelable {
         dataSource = new DataSource(context);
 
     }
-    public Results(String quiz_type, int score, int total, long kidId) {
+    public Results(String quiz_type, int score, int total, long kidId, long lang_id) {
 
         this.quiz_type = quiz_type;
         this.score = score;
         this.total = total;
         this.kidId = kidId;
+        this.lang_id = lang_id;
 
     }
 
@@ -143,7 +144,15 @@ public class Results implements Parcelable {
         this.unanswered_word = unanswered_word;
     }
 
-//    public ArrayList<Answer> getAnswer() {
+    public long getLang_id() {
+        return lang_id;
+    }
+
+    public void setLang_id(long lang_id) {
+        this.lang_id = lang_id;
+    }
+
+    //    public ArrayList<Answer> getAnswer() {
 //        return answers;
 //    }
 
@@ -174,6 +183,7 @@ public class Results implements Parcelable {
         contentValues.put(ItemTables.SCORE, results.getScore());
         contentValues.put(ItemTables.TOTAL, results.getTotal());
         contentValues.put(ItemTables.KID_ID, results.getKidId());
+        contentValues.put(ItemTables.LANG_ID, results.getLang_id());
 
         return dataSource.createItem(contentValues, ItemTables.RESULTS_TABLE);
 

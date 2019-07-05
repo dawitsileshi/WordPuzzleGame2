@@ -17,6 +17,7 @@ public class Answer implements Parcelable {
 //    private int question_Number
     private long result_id;
     private boolean correct;
+    private long kid_id;
 
     private Results results;
     private Word word;
@@ -129,6 +130,14 @@ public class Answer implements Parcelable {
         this.results = results;
     }
 
+    public long getKid_id() {
+        return kid_id;
+    }
+
+    public void setKid_id(long kid_id) {
+        this.kid_id = kid_id;
+    }
+
     public long insertAnswer(ArrayList<Long> wordIds, ArrayList<Boolean> answers, long result_id) {
 
         long result = 0;
@@ -197,6 +206,7 @@ public class Answer implements Parcelable {
         dest.writeByte((byte) (correct ? 1 : 0));
         dest.writeParcelable(results, flags);
     }
+
 
 //    public ArrayList<Answer> listAnswers() {
 //

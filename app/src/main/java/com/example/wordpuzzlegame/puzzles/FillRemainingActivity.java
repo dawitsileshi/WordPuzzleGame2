@@ -22,6 +22,7 @@ import com.example.wordpuzzlegame.ResultsActivity;
 import com.example.wordpuzzlegame.model.Answer;
 import com.example.wordpuzzlegame.model.DataSource;
 import com.example.wordpuzzlegame.model.Results;
+import com.example.wordpuzzlegame.model.StrugglingWords;
 import com.example.wordpuzzlegame.model.Word;
 import com.example.wordpuzzlegame.utils.PreferenceUtil;
 
@@ -31,6 +32,7 @@ import java.util.List;
 import java.util.Random;
 
 // TODO https://www.color-meanings.com/color-psychology-child-behavior-and-learning-through-colors/
+// TODO https://www.sciencenews.org/blog/growth-curve/seeing-one-picture-time-helps-kids-learn-words-books
 // TODO: the game repeats question if the kids got right, but will change if it is not answered or incorrectly answered
 public class FillRemainingActivity extends AppCompatActivity {
 
@@ -257,7 +259,7 @@ public class FillRemainingActivity extends AppCompatActivity {
 
         long kidId = new PreferenceUtil(FillRemainingActivity.this).retrieveLongValue(PreferenceUtil.ACTIVE_USER_ID);
         Results results = new Results(FillRemainingActivity.this);
-        Results singleResult = new Results("Fill The Remaining Letters", score, total, kidId);
+        Results singleResult = new Results(Constants.FILL_IN_THE_BLANK_GAME, score, total, kidId, langCode);
         long id = results.insertResult(singleResult);
 //                    wordIds.add(wordObject.getId());
 //                    answers.add(correctAnswerTVIndex == correctAnswerTag);
@@ -268,6 +270,7 @@ public class FillRemainingActivity extends AppCompatActivity {
         } else {
             Toast.makeText(FillRemainingActivity.this, "Not Saved", Toast.LENGTH_SHORT).show();
         }
+        new StrugglingWords(this).checkFrequency(Constants.FILL_IN_THE_BLANK_GAME, langCode, kidId);
         Log.i("The answers", "" + wordIds.size());
         for (int i = 0; i < wordIds.size(); i++) {
             Log.i("The answers are",  "" + wordIds.get(i) + " " + answers.get(i));
@@ -280,7 +283,7 @@ public class FillRemainingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(FillRemainingActivity.this, ResultsActivity.class);
                 intent.putExtra("language", "Amharic");
-                intent.putExtra("gameType", "Fill the remaining word");
+                intent.putExtra("gameType", Constants.FILL_IN_THE_BLANK_GAME);
                 intent.putExtra("total", total);
                 intent.putExtra("score", score);
                 startActivity(intent);

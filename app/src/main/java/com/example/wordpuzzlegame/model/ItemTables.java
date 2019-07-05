@@ -96,4 +96,9 @@ public class ItemTables {
     public static final String ANSWER_TABLE = "answer";
     public static final String ANSWER_ID = "answer_id";
     public static final String STRUGGLING = "struggling";
+
+    public static final String REWARD_TABLE = "reward";
+    public static final String REWARD_ID = "reward_id";
+    public static final String HEART_VALUE = "heart";
+    public static final String SECONDS_LEFT = "seconds_left";
 }
